@@ -4,737 +4,1033 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy Birthday Mahal ♡</title>
+<title>Happy Birthday, Mahal ♡</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 :root {
-    --pink: #ff8fb3;
-    --hotpink: #f45d8d;
-    --lightpink: #fff0f5;
-    --pale: #fff8fb;
-    --darkpink: #c94e78;
-    --text: #5a3945;
+  --pink: #ff8fb3;
+  --hotpink: #f45d8d;
+  --lightpink: #fff0f5;
+  --pale: #fff8fb;
+  --darkpink: #c94e78;
+  --text: #5a3945;
+  --green: #8eaf79;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    background:
-        radial-gradient(circle at top, #fff9fb, #ffeef5 50%, #ffdce8);
-    color: var(--text);
-    font-family: "Quicksand", sans-serif;
-    min-height: 100vh;
+  margin: 0;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(circle at top left, #ffe0eb 0%, transparent 35%),
+    radial-gradient(circle at bottom right, #ffd8e6 0%, transparent 35%),
+    var(--pale);
+
+  color: var(--text);
+
+  font-family: "Quicksand", sans-serif;
+
+  overflow-x: hidden;
 }
 
-
-/* =========================================
-   FALLING PETALS
-========================================= */
-
-.petals {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 1;
-}
+/* =========================
+   FALLING FLOWERS
+========================= */
 
 .petal {
-    position: absolute;
-    top: -30px;
-    opacity: .55;
-    animation: fall linear infinite;
+  position: fixed;
+  top: -40px;
+  z-index: 0;
+
+  pointer-events: none;
+
+  color: rgba(244, 93, 141, 0.35);
+
+  animation: fall linear infinite;
 }
 
 @keyframes fall {
+  0% {
+    transform: translateY(-50px) rotate(0deg);
+  }
 
-    from {
-        transform: translateY(-30px) rotate(0deg);
-    }
-
-    to {
-        transform: translateY(110vh) rotate(360deg);
-    }
-
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+  }
 }
 
-
-/* =========================================
+/* =========================
    OPENING SCREEN
-========================================= */
+========================= */
 
 #opening {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
+  position: fixed;
+  inset: 0;
 
-    background:
-        radial-gradient(circle at center, #fff9fc, #ffe3ed);
+  z-index: 100;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    text-align: center;
+  padding: 25px;
 
-    padding: 20px;
+  background:
+    radial-gradient(circle at center, #fff8fb 0%, #ffe5ef 60%, #ffd3e2 100%);
 
-    transition:
-        opacity .8s ease,
-        visibility .8s ease;
+  transition:
+    opacity .8s ease,
+    visibility .8s ease;
 }
 
-#opening.hide {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+#opening.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-.opening-card {
-    max-width: 700px;
-    width: 100%;
-    padding: 20px;
+.opening-content {
+  width: min(700px, 95%);
+
+  text-align: center;
+
+  position: relative;
+  z-index: 2;
 }
 
+/* Lily on opening */
 
-/* =========================================
-   OPENING LILY
-========================================= */
+.opening-lily {
+  width: 105px;
+  height: 105px;
 
-.lily-large {
-    width: 115px;
-    margin: 0 auto 5px;
+  margin: 0 auto 12px;
 
-    animation:
-        floatLily 3s ease-in-out infinite;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes floatLily {
+.opening-lily::before,
+.opening-lily::after {
+  content: "🌸";
 
-    0%, 100% {
-        transform: translateY(0);
-    }
+  position: absolute;
 
-    50% {
-        transform: translateY(-8px);
-    }
+  font-size: 75px;
 
+  opacity: .9;
 }
 
+.opening-lily::before {
+  transform: rotate(-20deg);
+}
 
-/* =========================================
-   OPENING TEXT
-========================================= */
+.opening-lily::after {
+  transform: rotate(20deg) scale(.85);
+}
 
-.small-intro {
+.opening-small {
+  font-size: 13px;
 
-    font-size: 13px;
+  letter-spacing: 2px;
 
-    letter-spacing: 3px;
+  text-transform: uppercase;
 
-    text-transform: uppercase;
+  color: var(--darkpink);
 
-    color: var(--darkpink);
-
-    margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .opening-title {
+  margin: 0;
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
+  font-family: "Cormorant Garamond", serif;
 
-    font-size:
-        clamp(48px, 8vw, 85px);
+  font-size: clamp(48px, 8vw, 82px);
 
-    line-height: .88;
+  line-height: .85;
 
-    margin: 5px 0 15px;
+  font-weight: 700;
 
-    color: var(--hotpink);
+  color: var(--darkpink);
 
-    text-shadow:
-        0 3px 0 rgba(255,255,255,.8);
+  text-shadow: 0 5px 20px rgba(201, 78, 120, .12);
 }
 
 .opening-hearts {
+  margin: 18px 0;
 
-    color: var(--pink);
+  color: var(--hotpink);
 
-    font-size: 20px;
+  letter-spacing: 8px;
 
-    letter-spacing: 6px;
+  font-size: 20px;
 }
 
-.birthday-date {
+.opening-date {
+  font-size: 13px;
 
-    margin-top: 12px;
+  letter-spacing: 3px;
 
-    font-weight: 700;
+  color: #a85c75;
 
-    letter-spacing: 3px;
-
-    font-size: 14px;
-
-    color: var(--darkpink);
+  margin-bottom: 24px;
 }
 
 .opening-message {
+  font-size: 16px;
 
-    margin: 15px auto 20px;
+  line-height: 1.8;
 
-    max-width: 540px;
+  margin: 0 auto 28px;
 
-    font-size: 17px;
-
-    line-height: 1.6;
+  max-width: 500px;
 }
 
-
-/* =========================================
-   OPEN BUTTON
-========================================= */
-
-.open-btn {
-
-    border: none;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff8fb3,
-            #f45d8d
-        );
-
-    color: white;
-
-    padding: 15px 28px;
-
-    border-radius: 50px;
-
-    font-family: inherit;
-
-    font-weight: 700;
-
-    font-size: 15px;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 10px 25px rgba(244,93,141,.3);
-
-    transition:
-        transform .2s,
-        box-shadow .2s;
+.opening-message strong {
+  color: var(--darkpink);
 }
 
-.open-btn:hover {
+.open-button {
+  border: none;
 
-    transform:
-        translateY(-3px)
-        scale(1.02);
+  background: var(--hotpink);
 
-    box-shadow:
-        0 15px 30px rgba(244,93,141,.4);
+  color: white;
+
+  padding: 15px 30px;
+
+  border-radius: 999px;
+
+  font-family: "Quicksand", sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 25px rgba(244, 93, 141, .25);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.open-button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 15px 30px rgba(244, 93, 141, .32);
 }
 
 .sound-note {
+  margin-top: 15px;
 
-    margin-top: 10px;
+  font-size: 12px;
 
-    font-size: 12px;
-
-    opacity: .65;
+  color: #a87383;
 }
 
+/* =========================
+   MAIN WEBSITE
+========================= */
 
-/* =========================================
+#site {
+  min-height: 100vh;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+#site.hidden {
+  display: none;
+}
+
+/* =========================
    NAVIGATION
-========================================= */
+========================= */
 
-nav {
+#nav {
+  position: sticky;
 
-    position: sticky;
+  top: 0;
 
-    top: 0;
+  z-index: 50;
 
-    z-index: 20;
+  display: flex;
 
-    background:
-        rgba(255,248,251,.92);
+  justify-content: center;
 
-    backdrop-filter: blur(12px);
+  gap: 8px;
 
-    border-bottom:
-        1px solid rgba(244,93,141,.15);
+  padding: 14px 15px;
 
-    display: none;
+  background: rgba(255, 248, 251, .88);
 
-    justify-content: center;
+  backdrop-filter: blur(12px);
 
-    flex-wrap: wrap;
-
-    gap: 8px;
-
-    padding: 12px;
+  border-bottom: 1px solid rgba(255, 143, 179, .18);
 }
 
-nav.show {
-    display: flex;
+#nav.hidden {
+  display: none;
 }
 
-nav button {
+.nav-button {
+  border: none;
 
-    border: none;
+  background: transparent;
 
-    background: #ffe4ed;
+  color: #9d6075;
 
-    color: var(--darkpink);
+  font-family: "Quicksand", sans-serif;
 
-    padding: 10px 17px;
+  font-size: 13px;
 
-    border-radius: 30px;
+  font-weight: 600;
 
-    font-family: inherit;
+  padding: 10px 16px;
 
-    font-weight: 700;
+  border-radius: 999px;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition: .2s;
+  transition: .2s ease;
 }
 
-nav button:hover,
-nav button.active {
+.nav-button:hover {
+  background: #ffe2ec;
 
-    background: var(--hotpink);
-
-    color: white;
+  color: var(--darkpink);
 }
 
+.nav-button.active {
+  background: #ffd4e2;
 
-/* =========================================
-   MAIN
-========================================= */
-
-main {
-
-    max-width: 950px;
-
-    margin: auto;
-
-    padding:
-        40px 20px 100px;
+  color: var(--darkpink);
 }
+
+/* =========================
+   PAGES
+========================= */
 
 .page {
+  display: none;
 
-    display: none;
+  min-height: calc(100vh - 65px);
 
-    animation:
-        fadeIn .5s ease;
+  padding: 60px 20px 90px;
+
+  position: relative;
 }
 
 .page.active {
-
-    display: block;
+  display: block;
 }
 
-@keyframes fadeIn {
-
-    from {
-
-        opacity: 0;
-
-        transform:
-            translateY(15px);
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
-}
-
-
-/* =========================================
-   CARDS
-========================================= */
-
-.card {
-
-    background:
-        rgba(255,255,255,.78);
-
-    border:
-        1px solid rgba(244,93,141,.18);
-
-    border-radius: 30px;
-
-    padding: 35px;
-
-    margin-bottom: 25px;
-
-    box-shadow:
-        0 15px 40px
-        rgba(201,78,120,.1);
-
-    backdrop-filter: blur(8px);
-}
-
-.section-title {
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    color: var(--hotpink);
-
-    font-size: 55px;
-
-    text-align: center;
-
-    margin-top: 0;
-}
-
-.subtitle {
-
-    text-align: center;
-
-    opacity: .7;
-}
-
-
-/* =========================================
+/* =========================
    HOME
-========================================= */
+========================= */
 
-.lily-row {
+.home-container {
+  max-width: 850px;
 
-    display: flex;
+  margin: 0 auto;
 
-    justify-content: center;
-
-    gap: 18px;
-
-    flex-wrap: wrap;
-
-    margin-bottom: 15px;
+  text-align: center;
 }
 
-.lily {
+.home-small {
+  color: var(--darkpink);
 
-    width: 80px;
+  font-size: 13px;
 
-    animation:
-        flowerFloat 3s ease-in-out infinite;
-}
+  letter-spacing: 2px;
 
-.lily:nth-child(2) {
-    animation-delay: .5s;
-}
+  text-transform: uppercase;
 
-.lily:nth-child(3) {
-    animation-delay: 1s;
-}
-
-@keyframes flowerFloat {
-
-    0%, 100% {
-
-        transform:
-            translateY(0)
-            rotate(-2deg);
-    }
-
-    50% {
-
-        transform:
-            translateY(-8px)
-            rotate(2deg);
-    }
-
+  margin-bottom: 10px;
 }
 
 .home-title {
+  font-family: "Cormorant Garamond", serif;
 
-    text-align: center;
+  font-size: clamp(48px, 8vw, 82px);
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
+  line-height: .9;
 
-    color: var(--hotpink);
+  color: var(--darkpink);
 
-    font-size:
-        clamp(50px, 9vw, 90px);
+  margin: 0;
+}
 
-    line-height: .85;
+.home-subtitle {
+  font-size: 18px;
+
+  margin-top: 20px;
+
+  line-height: 1.8;
+}
+
+/* Lily row */
+
+.lily-row {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin: 35px auto;
+
+  height: 130px;
+}
+
+.home-lily {
+  font-size: 75px;
+
+  filter:
+    drop-shadow(0 8px 8px rgba(200, 70, 110, .12));
+}
+
+.home-lily:nth-child(1) {
+  transform: rotate(-12deg);
+}
+
+.home-lily:nth-child(2) {
+  transform: translateY(-15px);
+}
+
+.home-lily:nth-child(3) {
+  transform: rotate(12deg);
 }
 
 .home-message {
+  max-width: 580px;
 
-    text-align: center;
+  margin: 0 auto;
 
-    font-size: 19px;
+  font-size: 16px;
 
-    line-height: 1.7;
-
-    max-width: 650px;
-
-    margin: 25px auto;
+  line-height: 1.9;
 }
 
+/* =========================
+   LETTER PAGE
+========================= */
 
-/* =========================================
-   LETTER
-========================================= */
+.letter-wrapper {
+  width: min(900px, 94%);
 
-.letter-paper {
+  margin: 0 auto;
 
-    min-height: 550px;
+  padding: 10px 0 80px;
 
-    background:
-        linear-gradient(
-            #fffdfd,
-            #fff7fa
-        );
-
-    border-radius: 25px;
-
-    padding: 45px;
-
-    box-shadow:
-        inset 0 0 30px
-        rgba(244,93,141,.08);
-
-    position: relative;
+  position: relative;
 }
 
-.letter-paper::before {
+/* =========================
+   LILY BOUQUET
+========================= */
 
-    content: "♡";
+.lily-bouquet {
+  height: 280px;
 
-    position: absolute;
+  width: 380px;
 
-    top: 20px;
+  margin: 0 auto -30px;
 
-    right: 25px;
+  position: relative;
 
-    color: var(--pink);
-
-    font-size: 30px;
+  z-index: 3;
 }
 
+/* Stems */
 
-/* =========================================
-   YOUR LETTER
-========================================= */
+.stem {
+  position: absolute;
+
+  width: 5px;
+
+  height: 205px;
+
+  background: var(--green);
+
+  border-radius: 10px;
+
+  left: 50%;
+
+  bottom: 22px;
+
+  transform-origin: bottom;
+}
+
+.stem1 {
+  transform: rotate(-30deg);
+}
+
+.stem2 {
+  transform: rotate(-17deg);
+}
+
+.stem3 {
+  transform: rotate(-5deg);
+}
+
+.stem4 {
+  transform: rotate(12deg);
+}
+
+.stem5 {
+  transform: rotate(27deg);
+}
+
+.stem6 {
+  transform: rotate(38deg);
+}
+
+/* Leaves */
+
+.leaf {
+  position: absolute;
+
+  width: 82px;
+
+  height: 30px;
+
+  background: #91b27c;
+
+  border-radius: 100% 0 100% 0;
+}
+
+.leaf1 {
+  left: 65px;
+
+  bottom: 42px;
+
+  transform: rotate(28deg);
+}
+
+.leaf2 {
+  left: 220px;
+
+  bottom: 48px;
+
+  transform: rotate(-30deg);
+}
+
+.leaf3 {
+  left: 105px;
+
+  bottom: 20px;
+
+  transform: rotate(55deg);
+}
+
+.leaf4 {
+  left: 185px;
+
+  bottom: 22px;
+
+  transform: rotate(-55deg);
+}
+
+/* =========================
+   LILIES
+========================= */
+
+.lily {
+  position: absolute;
+
+  width: 82px;
+
+  height: 82px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #fff1f6 0%,
+      #ffd1df 25%,
+      #ffabc5 55%,
+      #ff8fb3 80%,
+      #f4779f 100%
+    );
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  filter:
+    drop-shadow(0 6px 8px rgba(190, 70, 110, .18));
+}
+
+/* Petal shapes */
+
+.lily::before,
+.lily::after {
+  content: "";
+
+  position: absolute;
+
+  width: 62px;
+
+  height: 62px;
+
+  border-radius: 50%;
+
+  background: inherit;
+}
+
+.lily::before {
+  transform: translateY(-24px);
+}
+
+.lily::after {
+  transform: translateY(24px);
+}
+
+.lily span {
+  position: relative;
+
+  z-index: 5;
+
+  color: #d45c7e;
+
+  font-size: 25px;
+
+  text-shadow: 0 1px 2px rgba(255,255,255,.5);
+}
+
+/* Flower positions */
+
+.lily1 {
+  left: 45px;
+
+  top: 72px;
+
+  transform: rotate(-18deg);
+}
+
+.lily2 {
+  left: 95px;
+
+  top: 35px;
+
+  transform: rotate(-10deg);
+}
+
+.lily3 {
+  left: 145px;
+
+  top: 18px;
+}
+
+.lily4 {
+  left: 195px;
+
+  top: 38px;
+
+  transform: rotate(10deg);
+}
+
+.lily5 {
+  left: 245px;
+
+  top: 75px;
+
+  transform: rotate(18deg);
+}
+
+.lily6 {
+  left: 130px;
+
+  top: 90px;
+
+  transform: scale(.82);
+}
+
+/* =========================
+   BOUQUET RIBBON
+========================= */
+
+.bouquet-ribbon {
+  position: absolute;
+
+  z-index: 8;
+
+  bottom: 12px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 62px;
+
+  height: 50px;
+
+  background: var(--hotpink);
+
+  color: white;
+
+  border-radius: 9px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 24px;
+
+  box-shadow:
+    0 5px 15px rgba(200, 60, 110, .2);
+}
+
+.bouquet-ribbon::before,
+.bouquet-ribbon::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -28px;
+
+  width: 40px;
+
+  height: 48px;
+
+  background: #ff7fa7;
+
+  z-index: -1;
+}
+
+.bouquet-ribbon::before {
+  left: 0;
+
+  transform: rotate(18deg);
+}
+
+.bouquet-ribbon::after {
+  right: 0;
+
+  transform: rotate(-18deg);
+}
+
+/* =========================
+   LETTER CARD
+========================= */
+
+.letter-card {
+  position: relative;
+
+  z-index: 2;
+
+  background: rgba(255,255,255,.96);
+
+  border: 2px solid #ffd1df;
+
+  border-radius: 30px;
+
+  padding: 58px 70px 65px;
+
+  box-shadow:
+    0 20px 50px rgba(210,80,120,.12),
+    0 5px 15px rgba(210,80,120,.08);
+}
+
+.letter-title {
+  text-align: center;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 36px;
+
+  font-weight: 700;
+
+  color: var(--darkpink);
+
+  margin-bottom: 35px;
+}
 
 .letter-content {
+  font-family: "Quicksand", sans-serif;
 
-    font-family:
-        "Cormorant Garamond",
-        serif;
+  font-size: 16px;
 
-    font-size: 21px;
+  line-height: 1.9;
 
-    line-height: 1.75;
-
-    color: #5a3945;
+  color: var(--text);
 }
 
-.letter-heading {
-
-    color: var(--hotpink);
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
-
-    font-size: 34px;
-
-    font-weight: 700;
-
-    margin-bottom: 25px;
+.letter-content p {
+  margin: 0 0 22px;
 }
 
+.letter-content strong {
+  color: var(--darkpink);
+}
 
-/* =========================================
+.signature {
+  text-align: right;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 27px;
+
+  color: var(--darkpink);
+
+  font-weight: 700;
+
+  margin-top: 35px !important;
+}
+
+/* =========================
    SUDOKU
-========================================= */
+========================= */
 
-.sudoku-wrapper {
+.sudoku-container {
+  max-width: 650px;
 
-    display: flex;
+  margin: 0 auto;
 
-    justify-content: center;
+  text-align: center;
 }
 
-#sudoku {
+.sudoku-title {
+  font-family: "Cormorant Garamond", serif;
 
-    border-collapse:
-        collapse;
+  font-size: 52px;
 
-    background:
-        white;
+  color: var(--darkpink);
 
-    box-shadow:
-        0 10px 30px
-        rgba(201,78,120,.12);
+  margin: 0 0 8px;
 }
 
-#sudoku td {
+.sudoku-description {
+  font-size: 15px;
 
-    padding: 0;
+  line-height: 1.7;
 
-    border:
-        1px solid #f2b5c8;
+  margin-bottom: 30px;
 }
 
-#sudoku td:nth-child(3),
-#sudoku td:nth-child(6) {
+.sudoku-board {
+  width: min(450px, 92vw);
 
-    border-right:
-        3px solid var(--hotpink);
+  aspect-ratio: 1;
+
+  margin: 0 auto 25px;
+
+  display: grid;
+
+  grid-template-columns: repeat(9, 1fr);
+
+  border: 3px solid var(--darkpink);
+
+  background: white;
 }
 
-#sudoku tr:nth-child(3) td,
-#sudoku tr:nth-child(6) td {
+.sudoku-cell {
+  min-width: 0;
 
-    border-bottom:
-        3px solid var(--hotpink);
+  border: 1px solid #f1bfd0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-family: "Quicksand", sans-serif;
+
+  font-size: clamp(15px, 3vw, 21px);
+
+  font-weight: 600;
+
+  color: var(--darkpink);
+
+  background: white;
+
+  text-align: center;
+
+  outline: none;
 }
 
-#sudoku input {
-
-    width: 48px;
-
-    height: 48px;
-
-    border: none;
-
-    text-align: center;
-
-    font-size: 20px;
-
-    font-family: inherit;
-
-    color: var(--darkpink);
-
-    background: #fffafd;
-
-    outline: none;
+.sudoku-cell:nth-child(3n) {
+  border-right: 2px solid var(--darkpink);
 }
 
-#sudoku input:focus {
+.sudoku-cell:nth-child(9n) {
+  border-right: none;
+}
 
-    background:
-        #ffe8f0;
+.sudoku-cell:nth-child(n+19):nth-child(-n+27),
+.sudoku-cell:nth-child(n+46):nth-child(-n+54) {
+  border-bottom: 2px solid var(--darkpink);
+}
+
+.sudoku-cell:focus {
+  background: #fff0f5;
+}
+
+.sudoku-cell.given {
+  background: #ffe5ee;
+
+  color: #a33f64;
 }
 
 .sudoku-buttons {
+  display: flex;
 
-    text-align: center;
+  justify-content: center;
 
-    margin-top: 25px;
+  gap: 10px;
+
+  flex-wrap: wrap;
 }
 
-.sudoku-buttons button {
+.sudoku-button {
+  border: none;
 
-    border: none;
+  background: var(--hotpink);
 
-    border-radius: 30px;
+  color: white;
 
-    padding: 12px 22px;
+  padding: 12px 22px;
 
-    margin: 5px;
+  border-radius: 999px;
 
-    background:
-        var(--hotpink);
+  font-family: "Quicksand", sans-serif;
 
-    color: white;
+  font-weight: 700;
 
-    font-family: inherit;
+  cursor: pointer;
 
-    font-weight: 700;
-
-    cursor: pointer;
+  transition: .2s ease;
 }
 
-#sudokuMessage {
-
-    text-align: center;
-
-    margin-top: 15px;
-
-    font-weight: 700;
+.sudoku-button:hover {
+  transform: translateY(-2px);
 }
 
+.sudoku-button.secondary {
+  background: #ffd3e1;
 
-/* =========================================
+  color: var(--darkpink);
+}
+
+.sudoku-result {
+  margin-top: 20px;
+
+  font-weight: 700;
+
+  min-height: 25px;
+
+  color: var(--darkpink);
+}
+
+/* =========================
    MOBILE
-========================================= */
+========================= */
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
 
-    .card {
+  #nav {
+    gap: 3px;
 
-        padding:
-            25px 18px;
-    }
+    padding: 10px 7px;
+  }
 
-    .letter-paper {
+  .nav-button {
+    padding: 9px 11px;
 
-        padding: 25px;
+    font-size: 11px;
+  }
 
-        min-height: 500px;
-    }
+  .page {
+    padding: 40px 12px 70px;
+  }
 
-    .letter-content {
+  .opening-title {
+    font-size: 48px;
+  }
 
-        font-size: 19px;
+  .opening-message {
+    font-size: 14px;
+  }
 
-        line-height: 1.7;
-    }
+  .home-title {
+    font-size: 52px;
+  }
 
-    #sudoku input {
+  .lily-row {
+    transform: scale(.8);
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
 
-        width: 35px;
+  .letter-wrapper {
+    width: 96%;
 
-        height: 35px;
+    padding-top: 5px;
+  }
 
-        font-size: 16px;
-    }
+  .lily-bouquet {
+    transform: scale(.76);
 
-    .section-title {
+    transform-origin: bottom center;
 
-        font-size: 45px;
-    }
+    margin-bottom: -65px;
+  }
 
-    .opening-title {
+  .letter-card {
+    padding: 42px 24px 48px;
 
-        font-size:
-            clamp(43px, 12vw, 65px);
-    }
+    border-radius: 23px;
+  }
 
+  .letter-title {
+    font-size: 29px;
+
+    margin-bottom: 25px;
+  }
+
+  .letter-content {
+    font-size: 14.5px;
+
+    line-height: 1.85;
+  }
+
+  .sudoku-title {
+    font-size: 44px;
+  }
 }
 
 </style>
@@ -743,766 +1039,367 @@ main {
 
 <body>
 
-
-<!-- =========================================
+<!-- =========================
      FALLING PETALS
-========================================= -->
+========================= -->
 
-<div
-    class="petals"
-    id="petals">
+<div class="petal" style="left:5%; animation-duration:9s; animation-delay:0s;">🌸</div>
+<div class="petal" style="left:15%; animation-duration:12s; animation-delay:2s;">♡</div>
+<div class="petal" style="left:27%; animation-duration:10s; animation-delay:4s;">🌷</div>
+<div class="petal" style="left:40%; animation-duration:13s; animation-delay:1s;">🌸</div>
+<div class="petal" style="left:53%; animation-duration:11s; animation-delay:5s;">♡</div>
+<div class="petal" style="left:67%; animation-duration:14s; animation-delay:3s;">🌷</div>
+<div class="petal" style="left:80%; animation-duration:10s; animation-delay:6s;">🌸</div>
+<div class="petal" style="left:92%; animation-duration:12s; animation-delay:2s;">♡</div>
+
+
+<!-- =========================
+     OPENING
+========================= -->
+
+<div id="opening">
+
+  <div class="opening-content">
+
+    <div class="opening-lily"></div>
+
+    <div class="opening-small">
+      A little birthday surprise from JJ ♡
+    </div>
+
+    <h1 class="opening-title">
+      HAPPY BIRTHDAY<br>
+      MAHAL!!!!!
+    </h1>
+
+    <div class="opening-hearts">
+      ♡ ♡ ♡
+    </div>
+
+    <div class="opening-date">
+      SEPTEMBER 8 · 24 YEARS OLD
+    </div>
+
+    <div class="opening-message">
+
+      <strong>
+        Happy 24th to my baby, my mahal.
+      </strong>
+
+      <br>
+
+      I made you a tiny little corner because you deserve something cute. ♡
+
+    </div>
+
+    <button class="open-button" onclick="openSurprise()">
+      OPEN MY SURPRISE ♡
+    </button>
+
+    <div class="sound-note">
+      🎵 Turn your sound on, Baby.
+    </div>
+
+  </div>
+
 </div>
 
 
+<!-- =========================
+     MAIN SITE
+========================= -->
 
-<!-- =========================================
-     OPENING SCREEN
-========================================= -->
-
-<section id="opening">
-
-    <div class="opening-card">
+<div id="site" class="hidden">
 
 
-        <!-- PINK LILY -->
+  <!-- NAVIGATION -->
 
-        <div class="lily-large">
+  <nav id="nav" class="hidden">
 
-            <svg
-                viewBox="0 0 200 200"
-                width="115">
+    <button
+      class="nav-button"
+      id="nav-home"
+      onclick="showPage('home')">
+      Home ♡
+    </button>
 
-                <defs>
+    <button
+      class="nav-button"
+      id="nav-letter"
+      onclick="showPage('letter')">
+      My Letter 💌
+    </button>
 
-                    <linearGradient
-                        id="pinkLily"
-                        x1="0"
-                        y1="0"
-                        x2="1"
-                        y2="1">
+    <button
+      class="nav-button"
+      id="nav-sudoku"
+      onclick="showPage('sudoku')">
+      Sudoku 🎮
+    </button>
 
-                        <stop
-                            offset="0%"
-                            stop-color="#ffd6e4"/>
-
-                        <stop
-                            offset="100%"
-                            stop-color="#f45d8d"/>
-
-                    </linearGradient>
-
-                </defs>
+  </nav>
 
 
-                <g
-                    fill="url(#pinkLily)"
-                    stroke="#e85d87"
-                    stroke-width="2">
+  <!-- =========================
+       HOME
+  ========================= -->
 
-                    <ellipse
-                        cx="100"
-                        cy="65"
-                        rx="28"
-                        ry="70"/>
+  <section id="home" class="page">
 
-                    <ellipse
-                        cx="100"
-                        cy="135"
-                        rx="28"
-                        ry="70"/>
+    <div class="home-container">
 
-                    <ellipse
-                        cx="65"
-                        cy="100"
-                        rx="70"
-                        ry="28"/>
+      <div class="home-small">
+        for my mahal ♡
+      </div>
 
-                    <ellipse
-                        cx="135"
-                        cy="100"
-                        rx="70"
-                        ry="28"/>
+      <h1 class="home-title">
+        HAPPY BIRTHDAY<br>
+        BABY!
+      </h1>
 
-                    <ellipse
-                        cx="75"
-                        cy="75"
-                        rx="30"
-                        ry="65"
-                        transform="rotate(-45 75 75)"/>
+      <div class="lily-row">
 
-                    <ellipse
-                        cx="125"
-                        cy="75"
-                        rx="30"
-                        ry="65"
-                        transform="rotate(45 125 75)"/>
+        <div class="home-lily">
+          🌸
+        </div>
 
-                </g>
+        <div class="home-lily">
+          🌸
+        </div>
 
+        <div class="home-lily">
+          🌸
+        </div>
 
-                <circle
-                    cx="100"
-                    cy="100"
-                    r="15"
-                    fill="#f6c344"/>
+      </div>
+
+      <p class="home-subtitle">
+        24 looks really pretty on you. ♡
+      </p>
+
+      <p class="home-message">
+        I hope today reminds you of how loved, appreciated,
+        and special you are. I'm really glad you're here,
+        and I'm really glad I met you.
+      </p>
+
+    </div>
+
+  </section>
 
 
-                <g
-                    stroke="#8f5367"
-                    stroke-width="2">
+  <!-- =========================
+       LETTER
+  ========================= -->
 
-                    <line
-                        x1="100"
-                        y1="100"
-                        x2="100"
-                        y2="50"/>
+  <section id="letter" class="page">
 
-                    <line
-                        x1="100"
-                        y1="100"
-                        x2="150"
-                        y2="100"/>
+    <div class="letter-wrapper">
 
-                    <line
-                        x1="100"
-                        y1="100"
-                        x2="50"
-                        y2="100"/>
 
-                    <line
-                        x1="100"
-                        y1="100"
-                        x2="100"
-                        y2="150"/>
+      <!-- LILY BOUQUET -->
 
-                </g>
+      <div class="lily-bouquet">
 
-            </svg>
+        <!-- stems -->
 
+        <div class="stem stem1"></div>
+        <div class="stem stem2"></div>
+        <div class="stem stem3"></div>
+        <div class="stem stem4"></div>
+        <div class="stem stem5"></div>
+        <div class="stem stem6"></div>
+
+
+        <!-- leaves -->
+
+        <div class="leaf leaf1"></div>
+        <div class="leaf leaf2"></div>
+        <div class="leaf leaf3"></div>
+        <div class="leaf leaf4"></div>
+
+
+        <!-- lilies -->
+
+        <div class="lily lily1">
+          <span>✿</span>
+        </div>
+
+        <div class="lily lily2">
+          <span>✿</span>
+        </div>
+
+        <div class="lily lily3">
+          <span>✿</span>
+        </div>
+
+        <div class="lily lily4">
+          <span>✿</span>
+        </div>
+
+        <div class="lily lily5">
+          <span>✿</span>
+        </div>
+
+        <div class="lily lily6">
+          <span>✿</span>
         </div>
 
 
-        <div class="small-intro">
+        <!-- ribbon -->
 
-            A little birthday surprise from JJ ♡
+        <div class="bouquet-ribbon">
+          ♡
+        </div>
 
+      </div>
+
+
+      <!-- LETTER CARD -->
+
+      <div class="letter-card">
+
+        <div class="letter-title">
+          HAPPY BIRTHDAY, MAHAL ♡
         </div>
 
 
-        <div class="opening-title">
+        <div class="letter-content">
 
-            HAPPY BIRTHDAY<br>
-            MAHAL!!!!!
+          <p>
+            I’m writing this while I’m literally talking to you,
+            so I have to type quietly so you don’t hear me.
+            HAHAHAHAHA.
+          </p>
+
+          <p>
+            I have so many things I want to tell you, not just today,
+            but honestly, almost every day.
+          </p>
+
+          <p>
+            You’ve become someone I’m so comfortable with.
+            I can talk to you about random things, be stupid with you,
+            play Roblox, or just stay on call with you.
+            Somehow, you became one of the best parts of my everyday life.
+          </p>
+
+          <p>
+            You’re my light. I love your smile, your laugh,
+            your little reactions, and just seeing you happy.
+            And the more I get to know you, the more I realize
+            how beautiful you are.
+          </p>
+
+          <p>
+            I also love that you let me see the vulnerable parts of you.
+            I still think about that night when we cried together.
+            I know you were having a hard time,
+            but being able to be there with you meant a lot to me.
+          </p>
+
+          <p>
+            I guess I don't just want to know the happy and cute parts of you.
+            I want to know <strong>you</strong>—even on the days when you're
+            anxious, tired, or stressed.
+          </p>
+
+          <p>
+            I’m really glad I met you.
+            Out of all the random people I could have met online,
+            somehow I met you.
+          </p>
+
+          <p>
+            Happy 24th birthday, Baby.
+            I hope you have the happiest birthday because you deserve it.
+          </p>
+
+          <p class="signature">
+            — JJ
+          </p>
 
         </div>
 
+      </div>
 
-        <div class="opening-hearts">
+    </div>
 
-            ♡ ♡ ♡
-
-        </div>
-
-
-        <div class="birthday-date">
-
-            SEPTEMBER 8 · 24 YEARS OLD
-
-        </div>
+  </section>
 
 
-        <div class="opening-message">
+  <!-- =========================
+       SUDOKU
+  ========================= -->
 
-            <strong>
-                Happy 24th to my baby, my mahal.
-            </strong>
+  <section id="sudoku" class="page">
 
-            <br>
+    <div class="sudoku-container">
 
-            I made you a tiny little corner
-            because you deserve something cute. ♡
+      <h1 class="sudoku-title">
+        Sudoku ♡
+      </h1>
 
-        </div>
+      <p class="sudoku-description">
+        Since we literally played Sudoku together,
+        I had to put one here hehe. 🎮
+        <br>
+        See if you can solve this one, Baby.
+      </p>
 
+
+      <div id="sudoku-board" class="sudoku-board"></div>
+
+
+      <div class="sudoku-buttons">
 
         <button
-            class="open-btn"
-            onclick="openSurprise()">
-
-            OPEN MY SURPRISE ♡
-
+          class="sudoku-button"
+          onclick="checkSudoku()">
+          CHECK ♡
         </button>
 
+        <button
+          class="sudoku-button secondary"
+          onclick="resetSudoku()">
+          RESET
+        </button>
 
-        <div class="sound-note">
+      </div>
 
-            🎵 Turn your sound on, Baby.
 
-        </div>
-
+      <div id="sudoku-result" class="sudoku-result"></div>
 
     </div>
 
-</section>
+  </section>
 
 
+</div>
 
-<!-- =========================================
-     NAVIGATION
-========================================= -->
-
-<nav id="navigation">
-
-
-    <button
-        onclick="showPage('home', this)"
-        class="active">
-
-        Home ♡
-
-    </button>
-
-
-    <button
-        onclick="showPage('letter', this)">
-
-        My Letter 💌
-
-    </button>
-
-
-    <button
-        onclick="showPage('sudoku', this)">
-
-        Sudoku 🎮
-
-    </button>
-
-
-</nav>
-
-
-
-<!-- =========================================
-     MAIN
-========================================= -->
-
-<main>
-
-
-<!-- =========================================
-     HOME
-========================================= -->
-
-<section
-    id="home"
-    class="page active">
-
-
-    <div class="card">
-
-
-        <div class="lily-row">
-
-
-            <!-- LILY 1 -->
-
-            <div class="lily">
-
-                <svg viewBox="0 0 200 200">
-
-                    <circle
-                        cx="100"
-                        cy="100"
-                        r="18"
-                        fill="#f6c344"/>
-
-                    <g
-                        fill="#ff9fbd"
-                        stroke="#e85d87"
-                        stroke-width="2">
-
-                        <ellipse
-                            cx="100"
-                            cy="55"
-                            rx="25"
-                            ry="65"/>
-
-                        <ellipse
-                            cx="100"
-                            cy="145"
-                            rx="25"
-                            ry="65"/>
-
-                        <ellipse
-                            cx="55"
-                            cy="100"
-                            rx="65"
-                            ry="25"/>
-
-                        <ellipse
-                            cx="145"
-                            cy="100"
-                            rx="65"
-                            ry="25"/>
-
-                        <ellipse
-                            cx="70"
-                            cy="70"
-                            rx="27"
-                            ry="60"
-                            transform="rotate(-45 70 70)"/>
-
-                        <ellipse
-                            cx="130"
-                            cy="70"
-                            rx="27"
-                            ry="60"
-                            transform="rotate(45 130 70)"/>
-
-                    </g>
-
-                </svg>
-
-            </div>
-
-
-            <!-- LILY 2 -->
-
-            <div class="lily">
-
-                <svg viewBox="0 0 200 200">
-
-                    <circle
-                        cx="100"
-                        cy="100"
-                        r="18"
-                        fill="#f6c344"/>
-
-                    <g
-                        fill="#ffb0c9"
-                        stroke="#e85d87"
-                        stroke-width="2">
-
-                        <ellipse
-                            cx="100"
-                            cy="55"
-                            rx="25"
-                            ry="65"/>
-
-                        <ellipse
-                            cx="100"
-                            cy="145"
-                            rx="25"
-                            ry="65"/>
-
-                        <ellipse
-                            cx="55"
-                            cy="100"
-                            rx="65"
-                            ry="25"/>
-
-                        <ellipse
-                            cx="145"
-                            cy="100"
-                            rx="65"
-                            ry="25"/>
-
-                        <ellipse
-                            cx="70"
-                            cy="70"
-                            rx="27"
-                            ry="60"
-                            transform="rotate(-45 70 70)"/>
-
-                        <ellipse
-                            cx="130"
-                            cy="70"
-                            rx="27"
-                            ry="60"
-                            transform="rotate(45 130 70)"/>
-
-                    </g>
-
-                </svg>
-
-            </div>
-
-
-            <!-- LILY 3 -->
-
-            <div class="lily">
-
-                <svg viewBox="0 0 200 200">
-
-                    <circle
-                        cx="100"
-                        cy="100"
-                        r="18"
-                        fill="#f6c344"/>
-
-                    <g
-                        fill="#ff8fb3"
-                        stroke="#e85d87"
-                        stroke-width="2">
-
-                        <ellipse
-                            cx="100"
-                            cy="55"
-                            rx="25"
-                            ry="65"/>
-
-                        <ellipse
-                            cx="100"
-                            cy="145"
-                            rx="25"
-                            ry="65"/>
-
-                        <ellipse
-                            cx="55"
-                            cy="100"
-                            rx="65"
-                            ry="25"/>
-
-                        <ellipse
-                            cx="145"
-                            cy="100"
-                            rx="65"
-                            ry="25"/>
-
-                        <ellipse
-                            cx="70"
-                            cy="70"
-                            rx="27"
-                            ry="60"
-                            transform="rotate(-45 70 70)"/>
-
-                        <ellipse
-                            cx="130"
-                            cy="70"
-                            rx="27"
-                            ry="60"
-                            transform="rotate(45 130 70)"/>
-
-                    </g>
-
-                </svg>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="small-intro">
-
-            for my favorite person ♡
-
-        </div>
-
-
-        <div class="home-title">
-
-            HAPPY BIRTHDAY<br>
-            MAHAL!!!!!
-
-        </div>
-
-
-        <div class="opening-hearts">
-
-            ♡ ♡ ♡
-
-        </div>
-
-
-        <div class="home-message">
-
-            Happy 24th to my baby, my mahal. ♡
-
-            <br><br>
-
-            I made you a tiny little corner
-            because you deserve something cute.
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================
-     LETTER
-========================================= -->
-
-<section
-    id="letter"
-    class="page">
-
-
-    <div class="card">
-
-
-        <h2 class="section-title">
-
-            My Letter ♡
-
-        </h2>
-
-
-        <p class="subtitle">
-
-            Something from me to you.
-
-        </p>
-
-
-        <div class="letter-paper">
-
-
-            <div class="letter-content">
-
-
-                <div class="letter-heading">
-
-                    HAPPY BIRTHDAY, MAHAL ♡
-
-                </div>
-
-
-                I’m writing this while I’m literally talking to you,
-                so I have to type quietly so you don’t hear me.
-                HAHAHAHAHA.
-
-                <br><br>
-
-
-                I have so many things I want to tell you,
-                not just today, but honestly, almost every day.
-
-                <br><br>
-
-
-                You’ve become someone I’m so comfortable with.
-                I can talk to you about random things, be stupid with you,
-                play Roblox, or just stay on call with you.
-                Somehow, you became one of the best parts of my everyday life.
-
-                <br><br>
-
-
-                You’re my light. I love your smile, your laugh,
-                your little reactions, and just seeing you happy.
-                And the more I get to know you, the more I realize
-                how beautiful you are.
-
-                <br><br>
-
-
-                I also love that you let me see the vulnerable parts of you.
-                I still think about that night when we cried together.
-                I know you were having a hard time, but being able to be
-                there with you meant a lot to me.
-
-                <br><br>
-
-
-                I guess I don't just want to know the happy and cute parts
-                of you. I want to know <strong>you</strong>—even on the days
-                when you're anxious, tired, or stressed.
-
-                <br><br>
-
-
-                I’m really glad I met you. Out of all the random people
-                I could have met online, somehow I met <strong>you</strong>.
-
-                <br><br>
-
-
-                Happy 24th birthday, Baby.
-                I hope you have the happiest birthday because you deserve it.
-
-                <br><br>
-
-
-                <strong>— JJ</strong>
-
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================
-     SUDOKU
-========================================= -->
-
-<section
-    id="sudoku"
-    class="page">
-
-
-    <div class="card">
-
-
-        <h2 class="section-title">
-
-            Sudoku ♡
-
-        </h2>
-
-
-        <p class="subtitle">
-
-            Because apparently we like
-            making our brains suffer together.
-
-        </p>
-
-
-        <div class="sudoku-wrapper">
-
-            <table id="sudoku"></table>
-
-        </div>
-
-
-        <div class="sudoku-buttons">
-
-
-            <button
-                onclick="checkSudoku()">
-
-                CHECK ♡
-
-            </button>
-
-
-            <button
-                onclick="resetSudoku()">
-
-                RESET
-
-            </button>
-
-
-        </div>
-
-
-        <div id="sudokuMessage"></div>
-
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-
-<!-- =========================================
-     JAVASCRIPT
-========================================= -->
 
 <script>
 
-
-/* =========================================
-   FALLING PETALS
-========================================= */
-
-const petals =
-    document.getElementById("petals");
-
-const petalSymbols = [
-    "🌸",
-    "♡",
-    "🌷"
-];
-
-
-for (
-    let i = 0;
-    i < 35;
-    i++
-) {
-
-    const petal =
-        document.createElement("div");
-
-    petal.className =
-        "petal";
-
-    petal.innerHTML =
-        petalSymbols[
-            Math.floor(
-                Math.random()
-                *
-                petalSymbols.length
-            )
-        ];
-
-    petal.style.left =
-        Math.random() * 100 + "%";
-
-    petal.style.animationDuration =
-        (6 + Math.random() * 8) + "s";
-
-    petal.style.animationDelay =
-        (Math.random() * 8) + "s";
-
-    petal.style.fontSize =
-        (12 + Math.random() * 16) + "px";
-
-    petals.appendChild(petal);
-
-}
-
-
-/* =========================================
+/* =========================
    MUSIC
-========================================= */
+========================= */
 
-const audio =
-    document.createElement("audio");
+const audio = document.createElement("audio");
 
-audio.id =
-    "player";
+audio.id = "player";
 
-audio.loop =
-    true;
+audio.loop = true;
 
-audio.preload =
-    "auto";
+audio.preload = "auto";
 
-audio.volume =
-    0.7;
+audio.volume = 0.7;
 
 
-/*
-   Your exact MP3 filename
-*/
+const source = document.createElement("source");
 
-const source =
-    document.createElement("source");
+source.src = "Michal Leah - The Way I Love You.mp3";
 
-source.src =
-    "Michal Leah - The Way I Love You.mp3";
-
-source.type =
-    "audio/mpeg";
+source.type = "audio/mpeg";
 
 
 audio.appendChild(source);
@@ -1510,359 +1407,345 @@ audio.appendChild(source);
 document.body.appendChild(audio);
 
 
-/* =========================================
+/* =========================
    PLAY SONG
-========================================= */
+========================= */
 
 function playSong() {
 
-    audio.volume = 0.7;
+  audio.play().catch(function(error) {
 
-    audio.play().catch(
-        function(error) {
+    console.log("Audio could not start:", error);
 
-            console.log(
-                "Music playback was blocked:",
-                error
-            );
-
-        }
-    );
+  });
 
 }
 
 
-/* =========================================
+/* =========================
    OPEN SURPRISE
-========================================= */
+========================= */
 
 function openSurprise() {
 
-    /*
-       Clicking this button counts as
-       user interaction, so the browser
-       can start the music.
-    */
+  /*
+    Start music after the user's click.
+    This avoids browser autoplay restrictions.
+  */
 
-    playSong();
-
-
-    document
-        .getElementById("opening")
-        .classList
-        .add("hide");
+  playSong();
 
 
-    document
-        .getElementById("navigation")
-        .classList
-        .add("show");
+  /*
+    Hide opening screen.
+  */
+
+  document
+    .getElementById("opening")
+    .classList
+    .add("hidden");
 
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+  /*
+    Show main website.
+  */
+
+  document
+    .getElementById("site")
+    .classList
+    .remove("hidden");
+
+
+  /*
+    Show navigation.
+  */
+
+  document
+    .getElementById("nav")
+    .classList
+    .remove("hidden");
+
+
+  /*
+    IMPORTANT:
+    Go DIRECTLY to the letter.
+  */
+
+  showPage("letter");
 
 }
 
 
-/* =========================================
+/* =========================
    PAGE NAVIGATION
-========================================= */
+========================= */
 
-function showPage(
-    pageId,
-    button
-) {
+function showPage(pageName) {
 
-    document
-        .querySelectorAll(".page")
-        .forEach(
-            function(page) {
+  const pages = document.querySelectorAll(".page");
 
-                page.classList.remove(
-                    "active"
-                );
+  pages.forEach(function(page) {
 
-            }
-        );
+    page.classList.remove("active");
+
+  });
 
 
-    document
-        .getElementById(pageId)
-        .classList
-        .add("active");
+  const selectedPage =
+    document.getElementById(pageName);
+
+  if (selectedPage) {
+
+    selectedPage.classList.add("active");
+
+  }
 
 
-    document
-        .querySelectorAll("nav button")
-        .forEach(
-            function(btn) {
+  /*
+    Update active navigation button.
+  */
 
-                btn.classList.remove(
-                    "active"
-                );
+  const navButtons =
+    document.querySelectorAll(".nav-button");
 
-            }
-        );
+  navButtons.forEach(function(button) {
 
+    button.classList.remove("active");
 
-    if (button) {
-
-        button.classList.add(
-            "active"
-        );
-
-    }
+  });
 
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+  const activeButton =
+    document.getElementById("nav-" + pageName);
+
+  if (activeButton) {
+
+    activeButton.classList.add("active");
+
+  }
+
+
+  /*
+    Scroll back to top when changing pages.
+  */
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 
 }
 
 
-/* =========================================
+/* =========================
    SUDOKU
-========================================= */
+========================= */
 
 const puzzle = [
 
-    [5,3,0,0,7,0,0,0,0],
+  [5,3,0,0,7,0,0,0,0],
 
-    [6,0,0,1,9,5,0,0,0],
+  [6,0,0,1,9,5,0,0,0],
 
-    [0,9,8,0,0,0,0,6,0],
+  [0,9,8,0,0,0,0,6,0],
 
-    [8,0,0,0,6,0,0,0,3],
+  [8,0,0,0,6,0,0,0,3],
 
-    [4,0,0,8,0,3,0,0,1],
+  [4,0,0,8,0,3,0,0,1],
 
-    [7,0,0,0,2,0,0,0,6],
+  [7,0,0,0,2,0,0,0,6],
 
-    [0,6,0,0,0,0,2,8,0],
+  [0,6,0,0,0,0,2,8,0],
 
-    [0,0,0,4,1,9,0,0,5],
+  [0,0,0,4,1,9,0,0,5],
 
-    [0,0,0,0,8,0,0,7,9]
+  [0,0,0,0,8,0,0,7,9]
 
 ];
 
 
 const solution = [
 
-    [5,3,4,6,7,8,9,1,2],
+  [5,3,4,6,7,8,9,1,2],
 
-    [6,7,2,1,9,5,3,4,8],
+  [6,7,2,1,9,5,3,4,8],
 
-    [1,9,8,3,4,2,5,6,7],
+  [1,9,8,3,4,2,5,6,7],
 
-    [8,5,9,7,6,1,4,2,3],
+  [8,5,9,7,6,1,4,2,3],
 
-    [4,2,6,8,5,3,7,9,1],
+  [4,2,6,8,5,3,7,9,1],
 
-    [7,1,3,9,2,4,8,5,6],
+  [7,1,3,9,2,4,8,5,6],
 
-    [9,6,1,5,3,7,2,8,4],
+  [9,6,1,5,3,7,2,8,4],
 
-    [2,8,7,4,1,9,6,3,5],
+  [2,8,7,4,1,9,6,3,5],
 
-    [3,4,5,2,8,6,1,7,9]
+  [3,4,5,2,8,6,1,7,9]
 
 ];
 
 
-function buildSudoku() {
-
-    const table =
-        document.getElementById(
-            "sudoku"
-        );
-
-    table.innerHTML = "";
+const sudokuBoard =
+  document.getElementById("sudoku-board");
 
 
-    for (
-        let r = 0;
-        r < 9;
-        r++
-    ) {
+function createSudoku() {
 
-        const row =
-            document.createElement("tr");
+  sudokuBoard.innerHTML = "";
 
 
-        for (
-            let c = 0;
-            c < 9;
-            c++
-        ) {
+  for (let row = 0; row < 9; row++) {
 
-            const cell =
-                document.createElement("td");
+    for (let col = 0; col < 9; col++) {
+
+      const input =
+        document.createElement("input");
 
 
-            const input =
-                document.createElement("input");
+      input.className = "sudoku-cell";
 
 
-            input.type =
-                "text";
+      input.maxLength = 1;
 
-            input.maxLength =
-                1;
-
-            input.inputMode =
-                "numeric";
+      input.inputMode = "numeric";
 
 
-            if (
-                puzzle[r][c] !== 0
-            ) {
+      if (puzzle[row][col] !== 0) {
 
-                input.value =
-                    puzzle[r][c];
+        input.value = puzzle[row][col];
 
-                input.disabled =
-                    true;
+        input.readOnly = true;
 
-                input.style.fontWeight =
-                    "700";
+        input.classList.add("given");
 
-                input.style.color =
-                    "#5a3945";
-
-            }
+      }
 
 
-            input.dataset.row =
-                r;
+      input.dataset.row = row;
 
-            input.dataset.col =
-                c;
+      input.dataset.col = col;
 
 
-            cell.appendChild(
-                input
-            );
+      input.addEventListener("input", function() {
 
-            row.appendChild(
-                cell
-            );
+        this.value =
+          this.value.replace(/[^1-9]/g, "");
 
-        }
+      });
 
 
-        table.appendChild(
-            row
-        );
+      sudokuBoard.appendChild(input);
 
     }
 
+  }
+
 }
 
+
+/* =========================
+   CHECK SUDOKU
+========================= */
 
 function checkSudoku() {
 
-    let correct =
-        true;
+  const cells =
+    document.querySelectorAll(".sudoku-cell");
 
 
-    const inputs =
-        document.querySelectorAll(
-            "#sudoku input"
-        );
+  let correct = true;
+
+  let complete = true;
 
 
-    inputs.forEach(
-        function(input) {
+  cells.forEach(function(cell) {
 
-            const r =
-                Number(
-                    input.dataset.row
-                );
+    const row =
+      Number(cell.dataset.row);
 
-            const c =
-                Number(
-                    input.dataset.col
-                );
+    const col =
+      Number(cell.dataset.col);
 
 
-            if (
-                Number(input.value)
-                !==
-                solution[r][c]
-            ) {
-
-                correct =
-                    false;
-
-                input.style.background =
-                    "#ffd6e4";
-
-            }
-
-            else {
-
-                input.style.background =
-                    "#e8fff1";
-
-            }
-
-        }
-    );
+    const value =
+      Number(cell.value);
 
 
-    const message =
-        document.getElementById(
-            "sudokuMessage"
-        );
+    if (!cell.value) {
 
+      complete = false;
 
-    if (correct) {
-
-        message.innerHTML =
-            "🎀 YOU DID IT!!! BONAK NO MORE!!! ♡";
-
-        message.style.color =
-            "#d94f7d";
+      return;
 
     }
 
-    else {
 
-        message.innerHTML =
-            "Hmmmm... something is wrong, Baby. Try again. ♡";
+    if (value !== solution[row][col]) {
 
-        message.style.color =
-            "#c94e78";
+      correct = false;
 
     }
+
+  });
+
+
+  const result =
+    document.getElementById("sudoku-result");
+
+
+  if (!complete) {
+
+    result.textContent =
+      "Finish it first, Baby! ♡";
+
+    return;
+
+  }
+
+
+  if (correct) {
+
+    result.textContent =
+      "YOU DID ITTTT! 🥹💕 I'm proud of you.";
+
+  } else {
+
+    result.textContent =
+      "Hmmmm... something is wrong. Try again, bonak. HAHAHA ♡";
+
+  }
 
 }
 
+
+/* =========================
+   RESET SUDOKU
+========================= */
 
 function resetSudoku() {
 
-    buildSudoku();
+  createSudoku();
 
-    document
-        .getElementById(
-            "sudokuMessage"
-        )
-        .innerHTML = "";
+  document
+    .getElementById("sudoku-result")
+    .textContent = "";
 
 }
 
 
-/* =========================================
-   START
-========================================= */
+/* =========================
+   START SUDOKU
+========================= */
 
-buildSudoku();
+createSudoku();
+
+
+/*
+  The site intentionally starts on the
+  LETTER page after the surprise button.
+*/
 
 </script>
 
