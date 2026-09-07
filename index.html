@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy Birthday, Mahal ♡</title>
+<title>Cassey's Little Corner ♡</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +21,8 @@
   --darkpink: #c94e78;
   --text: #5a3945;
   --green: #8eaf79;
+  --darkgreen: #638453;
+  --yellow: #f7c948;
 }
 
 * {
@@ -47,13 +49,16 @@ body {
   overflow-x: hidden;
 }
 
+
 /* =========================
-   FALLING FLOWERS
+   FALLING PETALS
 ========================= */
 
 .petal {
   position: fixed;
+
   top: -40px;
+
   z-index: 0;
 
   pointer-events: none;
@@ -64,6 +69,7 @@ body {
 }
 
 @keyframes fall {
+
   0% {
     transform: translateY(-50px) rotate(0deg);
   }
@@ -71,7 +77,9 @@ body {
   100% {
     transform: translateY(110vh) rotate(360deg);
   }
+
 }
+
 
 /* =========================
    OPENING SCREEN
@@ -79,18 +87,24 @@ body {
 
 #opening {
   position: fixed;
+
   inset: 0;
 
   z-index: 100;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   padding: 25px;
 
   background:
-    radial-gradient(circle at center, #fff8fb 0%, #ffe5ef 60%, #ffd3e2 100%);
+    radial-gradient(circle at center,
+      #fff8fb 0%,
+      #ffe5ef 60%,
+      #ffd3e2 100%);
 
   transition:
     opacity .8s ease,
@@ -99,7 +113,9 @@ body {
 
 #opening.hidden {
   opacity: 0;
+
   visibility: hidden;
+
   pointer-events: none;
 }
 
@@ -109,13 +125,13 @@ body {
   text-align: center;
 
   position: relative;
+
   z-index: 2;
 }
 
-/* Lily on opening */
-
 .opening-lily {
   width: 105px;
+
   height: 105px;
 
   margin: 0 auto 12px;
@@ -123,12 +139,15 @@ body {
   position: relative;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 }
 
 .opening-lily::before,
 .opening-lily::after {
+
   content: "🌸";
 
   position: absolute;
@@ -147,6 +166,7 @@ body {
 }
 
 .opening-small {
+
   font-size: 13px;
 
   letter-spacing: 2px;
@@ -159,6 +179,7 @@ body {
 }
 
 .opening-title {
+
   margin: 0;
 
   font-family: "Cormorant Garamond", serif;
@@ -171,10 +192,12 @@ body {
 
   color: var(--darkpink);
 
-  text-shadow: 0 5px 20px rgba(201, 78, 120, .12);
+  text-shadow:
+    0 5px 20px rgba(201, 78, 120, .12);
 }
 
 .opening-hearts {
+
   margin: 18px 0;
 
   color: var(--hotpink);
@@ -185,6 +208,7 @@ body {
 }
 
 .opening-date {
+
   font-size: 13px;
 
   letter-spacing: 3px;
@@ -195,6 +219,7 @@ body {
 }
 
 .opening-message {
+
   font-size: 16px;
 
   line-height: 1.8;
@@ -205,10 +230,12 @@ body {
 }
 
 .opening-message strong {
+
   color: var(--darkpink);
 }
 
 .open-button {
+
   border: none;
 
   background: var(--hotpink);
@@ -238,6 +265,7 @@ body {
 }
 
 .open-button:hover {
+
   transform: translateY(-3px);
 
   box-shadow:
@@ -245,6 +273,7 @@ body {
 }
 
 .sound-note {
+
   margin-top: 15px;
 
   font-size: 12px;
@@ -252,11 +281,13 @@ body {
   color: #a87383;
 }
 
+
 /* =========================
    MAIN WEBSITE
 ========================= */
 
 #site {
+
   min-height: 100vh;
 
   position: relative;
@@ -265,14 +296,17 @@ body {
 }
 
 #site.hidden {
+
   display: none;
 }
+
 
 /* =========================
    NAVIGATION
 ========================= */
 
 #nav {
+
   position: sticky;
 
   top: 0;
@@ -291,14 +325,17 @@ body {
 
   backdrop-filter: blur(12px);
 
-  border-bottom: 1px solid rgba(255, 143, 179, .18);
+  border-bottom:
+    1px solid rgba(255, 143, 179, .18);
 }
 
 #nav.hidden {
+
   display: none;
 }
 
 .nav-button {
+
   border: none;
 
   background: transparent;
@@ -321,22 +358,26 @@ body {
 }
 
 .nav-button:hover {
+
   background: #ffe2ec;
 
   color: var(--darkpink);
 }
 
 .nav-button.active {
+
   background: #ffd4e2;
 
   color: var(--darkpink);
 }
+
 
 /* =========================
    PAGES
 ========================= */
 
 .page {
+
   display: none;
 
   min-height: calc(100vh - 65px);
@@ -347,14 +388,17 @@ body {
 }
 
 .page.active {
+
   display: block;
 }
+
 
 /* =========================
    HOME
 ========================= */
 
 .home-container {
+
   max-width: 850px;
 
   margin: 0 auto;
@@ -363,6 +407,7 @@ body {
 }
 
 .home-small {
+
   color: var(--darkpink);
 
   font-size: 13px;
@@ -375,6 +420,7 @@ body {
 }
 
 .home-title {
+
   font-family: "Cormorant Garamond", serif;
 
   font-size: clamp(48px, 8vw, 82px);
@@ -387,6 +433,7 @@ body {
 }
 
 .home-subtitle {
+
   font-size: 18px;
 
   margin-top: 20px;
@@ -394,9 +441,8 @@ body {
   line-height: 1.8;
 }
 
-/* Lily row */
-
 .lily-row {
+
   display: flex;
 
   justify-content: center;
@@ -411,6 +457,7 @@ body {
 }
 
 .home-lily {
+
   font-size: 75px;
 
   filter:
@@ -418,18 +465,22 @@ body {
 }
 
 .home-lily:nth-child(1) {
+
   transform: rotate(-12deg);
 }
 
 .home-lily:nth-child(2) {
+
   transform: translateY(-15px);
 }
 
 .home-lily:nth-child(3) {
+
   transform: rotate(12deg);
 }
 
 .home-message {
+
   max-width: 580px;
 
   margin: 0 auto;
@@ -439,11 +490,13 @@ body {
   line-height: 1.9;
 }
 
+
 /* =========================
-   LETTER PAGE
+   LETTER
 ========================= */
 
 .letter-wrapper {
+
   width: min(900px, 94%);
 
   margin: 0 auto;
@@ -453,11 +506,8 @@ body {
   position: relative;
 }
 
-/* =========================
-   LILY BOUQUET
-========================= */
-
 .lily-bouquet {
+
   height: 280px;
 
   width: 380px;
@@ -469,9 +519,8 @@ body {
   z-index: 3;
 }
 
-/* Stems */
-
 .stem {
+
   position: absolute;
 
   width: 5px;
@@ -513,9 +562,8 @@ body {
   transform: rotate(38deg);
 }
 
-/* Leaves */
-
 .leaf {
+
   position: absolute;
 
   width: 82px;
@@ -528,6 +576,7 @@ body {
 }
 
 .leaf1 {
+
   left: 65px;
 
   bottom: 42px;
@@ -536,6 +585,7 @@ body {
 }
 
 .leaf2 {
+
   left: 220px;
 
   bottom: 48px;
@@ -544,6 +594,7 @@ body {
 }
 
 .leaf3 {
+
   left: 105px;
 
   bottom: 20px;
@@ -552,6 +603,7 @@ body {
 }
 
 .leaf4 {
+
   left: 185px;
 
   bottom: 22px;
@@ -559,11 +611,8 @@ body {
   transform: rotate(-55deg);
 }
 
-/* =========================
-   LILIES
-========================= */
-
 .lily {
+
   position: absolute;
 
   width: 82px;
@@ -592,10 +641,9 @@ body {
     drop-shadow(0 6px 8px rgba(190, 70, 110, .18));
 }
 
-/* Petal shapes */
-
 .lily::before,
 .lily::after {
+
   content: "";
 
   position: absolute;
@@ -610,14 +658,17 @@ body {
 }
 
 .lily::before {
+
   transform: translateY(-24px);
 }
 
 .lily::after {
+
   transform: translateY(24px);
 }
 
 .lily span {
+
   position: relative;
 
   z-index: 5;
@@ -625,13 +676,10 @@ body {
   color: #d45c7e;
 
   font-size: 25px;
-
-  text-shadow: 0 1px 2px rgba(255,255,255,.5);
 }
 
-/* Flower positions */
-
 .lily1 {
+
   left: 45px;
 
   top: 72px;
@@ -640,6 +688,7 @@ body {
 }
 
 .lily2 {
+
   left: 95px;
 
   top: 35px;
@@ -648,12 +697,14 @@ body {
 }
 
 .lily3 {
+
   left: 145px;
 
   top: 18px;
 }
 
 .lily4 {
+
   left: 195px;
 
   top: 38px;
@@ -662,6 +713,7 @@ body {
 }
 
 .lily5 {
+
   left: 245px;
 
   top: 75px;
@@ -670,6 +722,7 @@ body {
 }
 
 .lily6 {
+
   left: 130px;
 
   top: 90px;
@@ -677,11 +730,8 @@ body {
   transform: scale(.82);
 }
 
-/* =========================
-   BOUQUET RIBBON
-========================= */
-
 .bouquet-ribbon {
+
   position: absolute;
 
   z-index: 8;
@@ -716,6 +766,7 @@ body {
 
 .bouquet-ribbon::before,
 .bouquet-ribbon::after {
+
   content: "";
 
   position: absolute;
@@ -732,22 +783,21 @@ body {
 }
 
 .bouquet-ribbon::before {
+
   left: 0;
 
   transform: rotate(18deg);
 }
 
 .bouquet-ribbon::after {
+
   right: 0;
 
   transform: rotate(-18deg);
 }
 
-/* =========================
-   LETTER CARD
-========================= */
-
 .letter-card {
+
   position: relative;
 
   z-index: 2;
@@ -766,6 +816,7 @@ body {
 }
 
 .letter-title {
+
   text-align: center;
 
   font-family: "Cormorant Garamond", serif;
@@ -780,6 +831,7 @@ body {
 }
 
 .letter-content {
+
   font-family: "Quicksand", sans-serif;
 
   font-size: 16px;
@@ -790,14 +842,17 @@ body {
 }
 
 .letter-content p {
+
   margin: 0 0 22px;
 }
 
 .letter-content strong {
+
   color: var(--darkpink);
 }
 
 .signature {
+
   text-align: right;
 
   font-family: "Cormorant Garamond", serif;
@@ -811,11 +866,564 @@ body {
   margin-top: 35px !important;
 }
 
+
+/* =====================================================
+   CASSEY'S LITTLE GARDEN
+===================================================== */
+
+.garden-page {
+
+  padding-top: 35px;
+}
+
+.garden-container {
+
+  width: min(950px, 96%);
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.garden-heading {
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(48px, 8vw, 72px);
+
+  line-height: .9;
+
+  color: var(--darkpink);
+
+  margin: 0;
+}
+
+.garden-subtitle {
+
+  margin: 12px auto 35px;
+
+  color: #9d6075;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+
+  max-width: 500px;
+}
+
+.garden {
+
+  position: relative;
+
+  width: min(850px, 100%);
+
+  height: 570px;
+
+  margin: 0 auto;
+
+  border-radius: 50px;
+
+  overflow: hidden;
+
+  background:
+
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255,255,255,.8),
+      transparent 25%
+    ),
+
+    linear-gradient(
+      to bottom,
+      #fff8fb 0%,
+      #fff2f6 55%,
+      #f7dce6 55%,
+      #e8c6b0 100%
+    );
+
+  border: 3px solid #ffd5e2;
+
+  box-shadow:
+    0 20px 50px rgba(210,80,120,.13);
+}
+
+
+/* garden ground */
+
+.ground {
+
+  position: absolute;
+
+  bottom: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 180px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      #a9bd8e 0%,
+      #8fae76 65%,
+      #789765 100%
+    );
+
+  border-radius: 50% 50% 0 0 / 35% 35% 0 0;
+}
+
+.garden-grass {
+
+  position: absolute;
+
+  bottom: 145px;
+
+  font-size: 25px;
+
+  opacity: .75;
+}
+
+.grass1 {
+  left: 7%;
+}
+
+.grass2 {
+  left: 20%;
+}
+
+.grass3 {
+  left: 38%;
+}
+
+.grass4 {
+  left: 57%;
+}
+
+.grass5 {
+  left: 76%;
+}
+
+.grass6 {
+  left: 90%;
+}
+
+
+/* =========================
+   GARDEN FLOWERS
+========================= */
+
+.garden-flower {
+
+  position: absolute;
+
+  width: 95px;
+
+  height: 120px;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  transition:
+    transform .25s ease;
+}
+
+.garden-flower:hover {
+
+  transform:
+    translateY(-8px)
+    scale(1.06);
+}
+
+.flower-head {
+
+  position: absolute;
+
+  top: 0;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-size: 67px;
+
+  filter:
+    drop-shadow(0 6px 5px rgba(120,70,90,.13));
+}
+
+.flower-stem {
+
+  position: absolute;
+
+  top: 63px;
+
+  left: 50%;
+
+  width: 5px;
+
+  height: 75px;
+
+  background: #6f925e;
+
+  border-radius: 10px;
+
+  transform: translateX(-50%);
+}
+
+
+/* flower positions */
+
+.flower-lily {
+
+  left: 38%;
+
+  top: 70px;
+}
+
+.flower-sunflower {
+
+  left: 60%;
+
+  top: 105px;
+}
+
+.flower-tulip {
+
+  left: 16%;
+
+  top: 230px;
+}
+
+.flower-rose {
+
+  left: 32%;
+
+  top: 260px;
+}
+
+.flower-daisy {
+
+  left: 52%;
+
+  top: 250px;
+}
+
+.flower-lavender {
+
+  left: 72%;
+
+  top: 235px;
+}
+
+.flower-peony {
+
+  left: 83%;
+
+  top: 315px;
+}
+
+.flower-lotus {
+
+  left: 8%;
+
+  top: 330px;
+}
+
+
+/* sunflower */
+
+.flower-sunflower .flower-head {
+
+  font-size: 72px;
+}
+
+
+/* =========================
+   MYSTERIOUS BUSH
+========================= */
+
+.mystery-bush {
+
+  position: absolute;
+
+  right: 5%;
+
+  bottom: 45px;
+
+  width: 145px;
+
+  height: 115px;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  z-index: 20;
+
+  transition:
+    transform .25s ease;
+}
+
+.mystery-bush:hover {
+
+  transform:
+    scale(1.07);
+}
+
+.bush-body {
+
+  position: absolute;
+
+  bottom: 0;
+
+  left: 10px;
+
+  width: 125px;
+
+  height: 90px;
+
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      #91b27c,
+      #6c8f5c
+    );
+
+  border-radius:
+    55% 55% 35% 35%;
+}
+
+.bush-body::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 75px;
+
+  height: 65px;
+
+  left: -15px;
+
+  top: 25px;
+
+  background: #789b67;
+
+  border-radius: 50%;
+}
+
+.bush-body::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 75px;
+
+  height: 65px;
+
+  right: -15px;
+
+  top: 18px;
+
+  background: #759763;
+
+  border-radius: 50%;
+}
+
+.bush-eyes {
+
+  position: absolute;
+
+  z-index: 5;
+
+  top: 35px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-size: 25px;
+
+  letter-spacing: 12px;
+}
+
+.bush-label {
+
+  position: absolute;
+
+  bottom: -25px;
+
+  width: 100%;
+
+  left: 0;
+
+  font-size: 11px;
+
+  color: #5d7950;
+
+  opacity: .7;
+}
+
+
+/* =========================
+   GARDEN NOTE POPUP
+========================= */
+
+.note-overlay {
+
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 200;
+
+  display: none;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  background:
+    rgba(100, 45, 65, .28);
+
+  backdrop-filter: blur(6px);
+}
+
+.note-overlay.show {
+
+  display: flex;
+}
+
+.note-card {
+
+  width: min(450px, 94%);
+
+  background:
+    linear-gradient(
+      135deg,
+      #fffafb,
+      #fff0f5
+    );
+
+  border: 2px solid #ffd1df;
+
+  border-radius: 25px;
+
+  padding: 35px 30px 30px;
+
+  box-shadow:
+    0 25px 70px rgba(90,40,60,.22);
+
+  position: relative;
+
+  animation: notePop .35s ease;
+}
+
+@keyframes notePop {
+
+  from {
+    transform:
+      scale(.8)
+      translateY(20px);
+
+    opacity: 0;
+  }
+
+  to {
+    transform:
+      scale(1)
+      translateY(0);
+
+    opacity: 1;
+  }
+
+}
+
+.note-flower {
+
+  font-size: 55px;
+
+  margin-bottom: 5px;
+}
+
+.note-title {
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 32px;
+
+  font-weight: 700;
+
+  color: var(--darkpink);
+
+  margin-bottom: 15px;
+}
+
+.note-text {
+
+  font-size: 15px;
+
+  line-height: 1.85;
+
+  color: var(--text);
+
+  white-space: pre-line;
+}
+
+.note-close {
+
+  margin-top: 25px;
+
+  border: none;
+
+  background: var(--hotpink);
+
+  color: white;
+
+  padding: 11px 23px;
+
+  border-radius: 999px;
+
+  font-family: "Quicksand", sans-serif;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   GARDEN INSTRUCTIONS
+========================= */
+
+.garden-hint {
+
+  margin-top: 25px;
+
+  font-size: 13px;
+
+  color: #a36c7f;
+
+  letter-spacing: .5px;
+}
+
+
 /* =========================
    SUDOKU
 ========================= */
 
 .sudoku-container {
+
   max-width: 650px;
 
   margin: 0 auto;
@@ -824,6 +1432,7 @@ body {
 }
 
 .sudoku-title {
+
   font-family: "Cormorant Garamond", serif;
 
   font-size: 52px;
@@ -834,6 +1443,7 @@ body {
 }
 
 .sudoku-description {
+
   font-size: 15px;
 
   line-height: 1.7;
@@ -842,6 +1452,7 @@ body {
 }
 
 .sudoku-board {
+
   width: min(450px, 92vw);
 
   aspect-ratio: 1;
@@ -858,6 +1469,7 @@ body {
 }
 
 .sudoku-cell {
+
   min-width: 0;
 
   border: 1px solid #f1bfd0;
@@ -884,29 +1496,35 @@ body {
 }
 
 .sudoku-cell:nth-child(3n) {
+
   border-right: 2px solid var(--darkpink);
 }
 
 .sudoku-cell:nth-child(9n) {
+
   border-right: none;
 }
 
 .sudoku-cell:nth-child(n+19):nth-child(-n+27),
 .sudoku-cell:nth-child(n+46):nth-child(-n+54) {
+
   border-bottom: 2px solid var(--darkpink);
 }
 
 .sudoku-cell:focus {
+
   background: #fff0f5;
 }
 
 .sudoku-cell.given {
+
   background: #ffe5ee;
 
   color: #a33f64;
 }
 
 .sudoku-buttons {
+
   display: flex;
 
   justify-content: center;
@@ -917,6 +1535,7 @@ body {
 }
 
 .sudoku-button {
+
   border: none;
 
   background: var(--hotpink);
@@ -937,16 +1556,19 @@ body {
 }
 
 .sudoku-button:hover {
+
   transform: translateY(-2px);
 }
 
 .sudoku-button.secondary {
+
   background: #ffd3e1;
 
   color: var(--darkpink);
 }
 
 .sudoku-result {
+
   margin-top: 20px;
 
   font-weight: 700;
@@ -956,6 +1578,7 @@ body {
   color: var(--darkpink);
 }
 
+
 /* =========================
    MOBILE
 ========================= */
@@ -963,46 +1586,57 @@ body {
 @media (max-width: 600px) {
 
   #nav {
-    gap: 3px;
 
-    padding: 10px 7px;
+    gap: 2px;
+
+    padding: 10px 5px;
   }
 
   .nav-button {
-    padding: 9px 11px;
 
-    font-size: 11px;
+    padding: 9px 9px;
+
+    font-size: 10px;
   }
 
   .page {
-    padding: 40px 12px 70px;
+
+    padding: 40px 10px 70px;
   }
 
   .opening-title {
+
     font-size: 48px;
   }
 
   .opening-message {
+
     font-size: 14px;
   }
 
   .home-title {
+
     font-size: 52px;
   }
 
   .lily-row {
+
     transform: scale(.8);
+
     margin-top: 20px;
+
     margin-bottom: 15px;
   }
 
   .letter-wrapper {
+
     width: 96%;
 
     padding-top: 5px;
   }
 
   .lily-bouquet {
+
     transform: scale(.76);
 
     transform-origin: bottom center;
@@ -1011,26 +1645,155 @@ body {
   }
 
   .letter-card {
+
     padding: 42px 24px 48px;
 
     border-radius: 23px;
   }
 
   .letter-title {
+
     font-size: 29px;
 
     margin-bottom: 25px;
   }
 
   .letter-content {
+
     font-size: 14.5px;
 
     line-height: 1.85;
   }
 
+
+  /* Garden mobile */
+
+  .garden-page {
+
+    padding-left: 5px;
+
+    padding-right: 5px;
+  }
+
+  .garden {
+
+    height: 600px;
+
+    border-radius: 35px;
+  }
+
+  .garden-heading {
+
+    font-size: 48px;
+  }
+
+  .garden-subtitle {
+
+    font-size: 13px;
+  }
+
+  .garden-flower {
+
+    transform: scale(.78);
+  }
+
+  .garden-flower:hover {
+
+    transform:
+      scale(.84)
+      translateY(-5px);
+  }
+
+  .flower-lily {
+
+    left: 27%;
+
+    top: 65px;
+  }
+
+  .flower-sunflower {
+
+    left: 55%;
+
+    top: 95px;
+  }
+
+  .flower-tulip {
+
+    left: 4%;
+
+    top: 235px;
+  }
+
+  .flower-rose {
+
+    left: 26%;
+
+    top: 275px;
+  }
+
+  .flower-daisy {
+
+    left: 48%;
+
+    top: 265px;
+  }
+
+  .flower-lavender {
+
+    left: 70%;
+
+    top: 235px;
+  }
+
+  .flower-peony {
+
+    left: 60%;
+
+    top: 375px;
+  }
+
+  .flower-lotus {
+
+    left: 7%;
+
+    top: 370px;
+  }
+
+  .mystery-bush {
+
+    right: 29%;
+
+    bottom: 30px;
+
+    transform: scale(.75);
+  }
+
+  .mystery-bush:hover {
+
+    transform: scale(.8);
+  }
+
+  .note-card {
+
+    padding: 30px 22px 25px;
+  }
+
+  .note-title {
+
+    font-size: 28px;
+  }
+
+  .note-text {
+
+    font-size: 14px;
+  }
+
   .sudoku-title {
+
     font-size: 44px;
   }
+
 }
 
 </style>
@@ -1039,23 +1802,31 @@ body {
 
 <body>
 
-<!-- =========================
+
+<!-- =====================================================
      FALLING PETALS
-========================= -->
+===================================================== -->
 
 <div class="petal" style="left:5%; animation-duration:9s; animation-delay:0s;">🌸</div>
+
 <div class="petal" style="left:15%; animation-duration:12s; animation-delay:2s;">♡</div>
+
 <div class="petal" style="left:27%; animation-duration:10s; animation-delay:4s;">🌷</div>
+
 <div class="petal" style="left:40%; animation-duration:13s; animation-delay:1s;">🌸</div>
+
 <div class="petal" style="left:53%; animation-duration:11s; animation-delay:5s;">♡</div>
+
 <div class="petal" style="left:67%; animation-duration:14s; animation-delay:3s;">🌷</div>
+
 <div class="petal" style="left:80%; animation-duration:10s; animation-delay:6s;">🌸</div>
+
 <div class="petal" style="left:92%; animation-duration:12s; animation-delay:2s;">♡</div>
 
 
-<!-- =========================
-     OPENING
-========================= -->
+<!-- =====================================================
+     OPENING SCREEN
+===================================================== -->
 
 <div id="opening">
 
@@ -1092,8 +1863,12 @@ body {
 
     </div>
 
-    <button class="open-button" onclick="openSurprise()">
+    <button
+      class="open-button"
+      onclick="openSurprise()">
+
       OPEN MY SURPRISE ♡
+
     </button>
 
     <div class="sound-note">
@@ -1105,14 +1880,16 @@ body {
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      MAIN SITE
-========================= -->
+===================================================== -->
 
 <div id="site" class="hidden">
 
 
-  <!-- NAVIGATION -->
+  <!-- ===================================================
+       NAVIGATION
+  =================================================== -->
 
   <nav id="nav" class="hidden">
 
@@ -1120,29 +1897,47 @@ body {
       class="nav-button"
       id="nav-home"
       onclick="showPage('home')">
+
       Home ♡
+
     </button>
+
 
     <button
       class="nav-button"
       id="nav-letter"
       onclick="showPage('letter')">
+
       My Letter 💌
+
     </button>
+
+
+    <button
+      class="nav-button"
+      id="nav-garden"
+      onclick="showPage('garden')">
+
+      Cassey's Garden 🌸
+
+    </button>
+
 
     <button
       class="nav-button"
       id="nav-sudoku"
       onclick="showPage('sudoku')">
+
       Sudoku 🎮
+
     </button>
 
   </nav>
 
 
-  <!-- =========================
+  <!-- ===================================================
        HOME
-  ========================= -->
+  =================================================== -->
 
   <section id="home" class="page">
 
@@ -1178,9 +1973,13 @@ body {
       </p>
 
       <p class="home-message">
-        I hope today reminds you of how loved, appreciated,
-        and special you are. I'm really glad you're here,
+
+        I hope today reminds you of how loved,
+        appreciated, and special you are.
+
+        I'm really glad you're here,
         and I'm really glad I met you.
+
       </p>
 
     </div>
@@ -1188,9 +1987,9 @@ body {
   </section>
 
 
-  <!-- =========================
+  <!-- ===================================================
        LETTER
-  ========================= -->
+  =================================================== -->
 
   <section id="letter" class="page">
 
@@ -1201,8 +2000,6 @@ body {
 
       <div class="lily-bouquet">
 
-        <!-- stems -->
-
         <div class="stem stem1"></div>
         <div class="stem stem2"></div>
         <div class="stem stem3"></div>
@@ -1210,16 +2007,10 @@ body {
         <div class="stem stem5"></div>
         <div class="stem stem6"></div>
 
-
-        <!-- leaves -->
-
         <div class="leaf leaf1"></div>
         <div class="leaf leaf2"></div>
         <div class="leaf leaf3"></div>
         <div class="leaf leaf4"></div>
-
-
-        <!-- lilies -->
 
         <div class="lily lily1">
           <span>✿</span>
@@ -1245,9 +2036,6 @@ body {
           <span>✿</span>
         </div>
 
-
-        <!-- ribbon -->
-
         <div class="bouquet-ribbon">
           ♡
         </div>
@@ -1262,7 +2050,6 @@ body {
         <div class="letter-title">
           HAPPY BIRTHDAY, MAHAL ♡
         </div>
-
 
         <div class="letter-content">
 
@@ -1328,9 +2115,244 @@ body {
   </section>
 
 
-  <!-- =========================
+  <!-- ===================================================
+       CASSEY'S GARDEN
+  =================================================== -->
+
+  <section id="garden" class="page garden-page">
+
+    <div class="garden-container">
+
+
+      <h1 class="garden-heading">
+        Cassey's Garden 🌸
+      </h1>
+
+
+      <p class="garden-subtitle">
+
+        A tiny little garden made just for you.
+        <br>
+
+        Click the flowers...
+        you might find something. ♡
+
+      </p>
+
+
+      <!-- =========================
+           GARDEN
+      ========================= -->
+
+      <div class="garden">
+
+
+        <!-- GROUND -->
+
+        <div class="ground"></div>
+
+
+        <!-- GRASS -->
+
+        <div class="garden-grass grass1">
+          🌱
+        </div>
+
+        <div class="garden-grass grass2">
+          🌱
+        </div>
+
+        <div class="garden-grass grass3">
+          🌱
+        </div>
+
+        <div class="garden-grass grass4">
+          🌱
+        </div>
+
+        <div class="garden-grass grass5">
+          🌱
+        </div>
+
+        <div class="garden-grass grass6">
+          🌱
+        </div>
+
+
+        <!-- =========================
+             PINK LILY
+        ========================= -->
+
+        <button
+          class="garden-flower flower-lily"
+          onclick="openNote('lily')">
+
+          <span class="flower-head">
+            🌸
+          </span>
+
+          <span class="flower-stem"></span>
+
+        </button>
+
+
+        <!-- =========================
+             SUNFLOWER
+        ========================= -->
+
+        <button
+          class="garden-flower flower-sunflower"
+          onclick="openNote('sunflower')">
+
+          <span class="flower-head">
+            🌻
+          </span>
+
+          <span class="flower-stem"></span>
+
+        </button>
+
+
+        <!-- =========================
+             TULIP
+        ========================= -->
+
+        <button
+          class="garden-flower flower-tulip"
+          onclick="openNote('tulip')">
+
+          <span class="flower-head">
+            🌷
+          </span>
+
+          <span class="flower-stem"></span>
+
+        </button>
+
+
+        <!-- =========================
+             ROSE
+        ========================= -->
+
+        <button
+          class="garden-flower flower-rose"
+          onclick="openNote('rose')">
+
+          <span class="flower-head">
+            🌹
+          </span>
+
+          <span class="flower-stem"></span>
+
+        </button>
+
+
+        <!-- =========================
+             DAISY
+        ========================= -->
+
+        <button
+          class="garden-flower flower-daisy"
+          onclick="openNote('daisy')">
+
+          <span class="flower-head">
+            🌼
+          </span>
+
+          <span class="flower-stem"></span>
+
+        </button>
+
+
+        <!-- =========================
+             LAVENDER
+        ========================= -->
+
+        <button
+          class="garden-flower flower-lavender"
+          onclick="openNote('lavender')">
+
+          <span class="flower-head">
+            🪻
+          </span>
+
+          <span class="flower-stem"></span>
+
+        </button>
+
+
+        <!-- =========================
+             PEONY
+        ========================= -->
+
+        <button
+          class="garden-flower flower-peony"
+          onclick="openNote('peony')">
+
+          <span class="flower-head">
+            🌺
+          </span>
+
+          <span class="flower-stem"></span>
+
+        </button>
+
+
+        <!-- =========================
+             LOTUS
+        ========================= -->
+
+        <button
+          class="garden-flower flower-lotus"
+          onclick="openNote('lotus')">
+
+          <span class="flower-head">
+            🪷
+          </span>
+
+          <span class="flower-stem"></span>
+
+        </button>
+
+
+        <!-- =================================================
+             THE MYSTERIOUS BUSH 😂
+        ================================================= -->
+
+        <button
+          class="mystery-bush"
+          onclick="openBush()">
+
+          <div class="bush-body"></div>
+
+          <div class="bush-eyes">
+            • •
+          </div>
+
+          <div class="bush-label">
+            suspicious...
+          </div>
+
+        </button>
+
+
+      </div>
+
+
+      <div class="garden-hint">
+
+        🌸 Click a flower to open its little note. 🌻
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================
        SUDOKU
-  ========================= -->
+  =================================================== -->
 
   <section id="sudoku" class="page">
 
@@ -1341,14 +2363,21 @@ body {
       </h1>
 
       <p class="sudoku-description">
+
         Since we literally played Sudoku together,
         I had to put one here hehe. 🎮
+
         <br>
+
         See if you can solve this one, Baby.
+
       </p>
 
 
-      <div id="sudoku-board" class="sudoku-board"></div>
+      <div
+        id="sudoku-board"
+        class="sudoku-board">
+      </div>
 
 
       <div class="sudoku-buttons">
@@ -1356,19 +2385,27 @@ body {
         <button
           class="sudoku-button"
           onclick="checkSudoku()">
+
           CHECK ♡
+
         </button>
+
 
         <button
           class="sudoku-button secondary"
           onclick="resetSudoku()">
+
           RESET
+
         </button>
 
       </div>
 
 
-      <div id="sudoku-result" class="sudoku-result"></div>
+      <div
+        id="sudoku-result"
+        class="sudoku-result">
+      </div>
 
     </div>
 
@@ -1378,13 +2415,59 @@ body {
 </div>
 
 
+<!-- =====================================================
+     NOTE POPUP
+===================================================== -->
+
+<div
+  id="note-overlay"
+  class="note-overlay"
+  onclick="closeNote(event)">
+
+  <div
+    class="note-card"
+    onclick="event.stopPropagation()">
+
+    <div
+      id="note-flower"
+      class="note-flower">
+    </div>
+
+
+    <div
+      id="note-title"
+      class="note-title">
+    </div>
+
+
+    <div
+      id="note-text"
+      class="note-text">
+    </div>
+
+
+    <button
+      class="note-close"
+      onclick="closeNote()">
+
+      close ♡
+
+    </button>
+
+  </div>
+
+</div>
+
+
 <script>
 
-/* =========================
-   MUSIC
-========================= */
 
-const audio = document.createElement("audio");
+/* =====================================================
+   MUSIC
+===================================================== */
+
+const audio =
+  document.createElement("audio");
 
 audio.id = "player";
 
@@ -1395,11 +2478,14 @@ audio.preload = "auto";
 audio.volume = 0.7;
 
 
-const source = document.createElement("source");
+const source =
+  document.createElement("source");
 
-source.src = "Michal Leah - The Way I Love You.mp3";
+source.src =
+  "Michal Leah - The Way I Love You.mp3";
 
-source.type = "audio/mpeg";
+source.type =
+  "audio/mpeg";
 
 
 audio.appendChild(source);
@@ -1407,38 +2493,32 @@ audio.appendChild(source);
 document.body.appendChild(audio);
 
 
-/* =========================
+/* =====================================================
    PLAY SONG
-========================= */
+===================================================== */
 
 function playSong() {
 
   audio.play().catch(function(error) {
 
-    console.log("Audio could not start:", error);
+    console.log(
+      "Audio could not start:",
+      error
+    );
 
   });
 
 }
 
 
-/* =========================
+/* =====================================================
    OPEN SURPRISE
-========================= */
+===================================================== */
 
 function openSurprise() {
 
-  /*
-    Start music after the user's click.
-    This avoids browser autoplay restrictions.
-  */
-
   playSong();
 
-
-  /*
-    Hide opening screen.
-  */
 
   document
     .getElementById("opening")
@@ -1446,19 +2526,11 @@ function openSurprise() {
     .add("hidden");
 
 
-  /*
-    Show main website.
-  */
-
   document
     .getElementById("site")
     .classList
     .remove("hidden");
 
-
-  /*
-    Show navigation.
-  */
 
   document
     .getElementById("nav")
@@ -1467,8 +2539,7 @@ function openSurprise() {
 
 
   /*
-    IMPORTANT:
-    Go DIRECTLY to the letter.
+    GO STRAIGHT TO LETTER
   */
 
   showPage("letter");
@@ -1476,13 +2547,15 @@ function openSurprise() {
 }
 
 
-/* =========================
+/* =====================================================
    PAGE NAVIGATION
-========================= */
+===================================================== */
 
 function showPage(pageName) {
 
-  const pages = document.querySelectorAll(".page");
+  const pages =
+    document.querySelectorAll(".page");
+
 
   pages.forEach(function(page) {
 
@@ -1494,6 +2567,7 @@ function showPage(pageName) {
   const selectedPage =
     document.getElementById(pageName);
 
+
   if (selectedPage) {
 
     selectedPage.classList.add("active");
@@ -1501,12 +2575,9 @@ function showPage(pageName) {
   }
 
 
-  /*
-    Update active navigation button.
-  */
-
   const navButtons =
     document.querySelectorAll(".nav-button");
+
 
   navButtons.forEach(function(button) {
 
@@ -1516,7 +2587,10 @@ function showPage(pageName) {
 
 
   const activeButton =
-    document.getElementById("nav-" + pageName);
+    document.getElementById(
+      "nav-" + pageName
+    );
+
 
   if (activeButton) {
 
@@ -1525,21 +2599,375 @@ function showPage(pageName) {
   }
 
 
-  /*
-    Scroll back to top when changing pages.
-  */
-
   window.scrollTo({
+
     top: 0,
+
     behavior: "smooth"
+
   });
 
 }
 
 
-/* =========================
+/* =====================================================
+   =====================================================
+   CASSEY'S GARDEN NOTES
+   =====================================================
+   
+   THIS IS THE PART YOU PERSONALIZE.
+   
+   You can change:
+   
+   title:
+   The name of the note
+   
+   text:
+   The message she sees
+   
+   Keep the emojis if you like.
+   
+   =====================================================
+===================================================== */
+
+const gardenNotes = {
+
+
+  /* =========================
+     PINK LILY
+  ========================= */
+
+  lily: {
+
+    flower: "🌸",
+
+    title: "The Main Character",
+
+    text: `THIS IS WHERE YOU WRITE YOUR NOTE FOR CASSEY.
+
+You can put something about why you think of her when you see pink lilies.
+
+Make this one special because this is her flower. ♡`
+
+  },
+
+
+  /* =========================
+     SUNFLOWER
+  ========================= */
+
+  sunflower: {
+
+    flower: "🌻",
+
+    title: "JJ's Flower",
+
+    text: `THIS IS WHERE YOU WRITE YOUR NOTE.
+
+This one is mine. 🌻
+
+You can make this note about why your favorite flower is here in HER garden.
+
+Maybe something like:
+
+"Since this is Cassey's garden, I had to sneak one of mine in here too." ♡`
+
+  },
+
+
+  /* =========================
+     TULIP
+  ========================= */
+
+  tulip: {
+
+    flower: "🌷",
+
+    title: "Cutie Flower",
+
+    text: `YOUR NOTE HERE.
+
+Put something about her cute side,
+her little habits,
+or something she does that you find adorable.`
+
+  },
+
+
+  /* =========================
+     ROSE
+  ========================= */
+
+  rose: {
+
+    flower: "🌹",
+
+    title: "Pretty Girl",
+
+    text: `YOUR NOTE HERE.
+
+You can put a compliment here.
+
+Something specific about her
+is better than a generic compliment. ♡`
+
+  },
+
+
+  /* =========================
+     DAISY
+  ========================= */
+
+  daisy: {
+
+    flower: "🌼",
+
+    title: "Happy Flower",
+
+    text: `YOUR NOTE HERE.
+
+Something about her laugh,
+her smile,
+or one of those random moments
+where she makes you happy.`
+
+  },
+
+
+  /* =========================
+     LAVENDER
+  ========================= */
+
+  lavender: {
+
+    flower: "🪻",
+
+    title: "Comfort Flower",
+
+    text: `YOUR NOTE HERE.
+
+This could be about your calls,
+your random conversations,
+or how comfortable you feel with her.`
+
+  },
+
+
+  /* =========================
+     PEONY
+  ========================= */
+
+  peony: {
+
+    flower: "🌺",
+
+    title: "Pretty Things",
+
+    text: `YOUR NOTE HERE.
+
+This one can be a little more flirty.
+
+Tell her something you find really attractive
+or beautiful about her. ♡`
+
+  },
+
+
+  /* =========================
+     LOTUS
+  ========================= */
+
+  lotus: {
+
+    flower: "🪷",
+
+    title: "The Soft Side",
+
+    text: `YOUR NOTE HERE.
+
+You can write something about
+the vulnerable side of her
+that she lets you see.
+
+Keep this one personal.`
+
+  }
+
+};
+
+
+/* =====================================================
+   OPEN FLOWER NOTE
+===================================================== */
+
+function openNote(noteName) {
+
+  const note =
+    gardenNotes[noteName];
+
+
+  if (!note) return;
+
+
+  document
+    .getElementById("note-flower")
+    .textContent =
+    note.flower;
+
+
+  document
+    .getElementById("note-title")
+    .textContent =
+    note.title;
+
+
+  document
+    .getElementById("note-text")
+    .textContent =
+    note.text;
+
+
+  document
+    .getElementById("note-overlay")
+    .classList
+    .add("show");
+
+}
+
+
+/* =====================================================
+   CLOSE NOTE
+===================================================== */
+
+function closeNote(event) {
+
+  /*
+    If the user clicks the popup itself,
+    don't close it.
+  */
+
+  if (
+    event &&
+    event.target &&
+    event.target.id !== "note-overlay"
+  ) {
+
+    return;
+
+  }
+
+
+  document
+    .getElementById("note-overlay")
+    .classList
+    .remove("show");
+
+}
+
+
+/* =====================================================
+   NAUGHTY / MYSTERIOUS BUSH
+===================================================== */
+
+let bushClicks = 0;
+
+
+function openBush() {
+
+  bushClicks++;
+
+
+  if (bushClicks === 1) {
+
+    showCustomNote(
+      "🌿",
+      "The Mysterious Bush",
+      "Why did you click the bush? 🤨"
+    );
+
+  }
+
+
+  else if (bushClicks === 2) {
+
+    showCustomNote(
+      "🌿",
+      "The Mysterious Bush",
+      "You're clicking it again?? 😭"
+    );
+
+  }
+
+
+  else if (bushClicks === 3) {
+
+    showCustomNote(
+      "🌿",
+      "The Bonak Bush",
+      "BONAK 😭😭😭\n\nYou were warned."
+    );
+
+  }
+
+
+  else {
+
+    showCustomNote(
+      "🌿",
+      "The Naughty Bush",
+      `OKAY FINE.
+
+You found the naughty bush. 😭
+
+NOW PUT YOUR OWN NOTE HERE.
+
+You can make this your own inside joke.`
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   CUSTOM NOTE POPUP
+===================================================== */
+
+function showCustomNote(
+  flower,
+  title,
+  text
+) {
+
+  document
+    .getElementById("note-flower")
+    .textContent =
+    flower;
+
+
+  document
+    .getElementById("note-title")
+    .textContent =
+    title;
+
+
+  document
+    .getElementById("note-text")
+    .textContent =
+    text;
+
+
+  document
+    .getElementById("note-overlay")
+    .classList
+    .add("show");
+
+}
+
+
+/* =====================================================
    SUDOKU
-========================= */
+===================================================== */
 
 const puzzle = [
 
@@ -1588,7 +3016,9 @@ const solution = [
 
 
 const sudokuBoard =
-  document.getElementById("sudoku-board");
+  document.getElementById(
+    "sudoku-board"
+  );
 
 
 function createSudoku() {
@@ -1596,15 +3026,24 @@ function createSudoku() {
   sudokuBoard.innerHTML = "";
 
 
-  for (let row = 0; row < 9; row++) {
+  for (
+    let row = 0;
+    row < 9;
+    row++
+  ) {
 
-    for (let col = 0; col < 9; col++) {
+    for (
+      let col = 0;
+      col < 9;
+      col++
+    ) {
 
       const input =
         document.createElement("input");
 
 
-      input.className = "sudoku-cell";
+      input.className =
+        "sudoku-cell";
 
 
       input.maxLength = 1;
@@ -1612,13 +3051,18 @@ function createSudoku() {
       input.inputMode = "numeric";
 
 
-      if (puzzle[row][col] !== 0) {
+      if (
+        puzzle[row][col] !== 0
+      ) {
 
-        input.value = puzzle[row][col];
+        input.value =
+          puzzle[row][col];
 
         input.readOnly = true;
 
-        input.classList.add("given");
+        input.classList.add(
+          "given"
+        );
 
       }
 
@@ -1628,12 +3072,18 @@ function createSudoku() {
       input.dataset.col = col;
 
 
-      input.addEventListener("input", function() {
+      input.addEventListener(
+        "input",
+        function() {
 
-        this.value =
-          this.value.replace(/[^1-9]/g, "");
+          this.value =
+            this.value.replace(
+              /[^1-9]/g,
+              ""
+            );
 
-      });
+        }
+      );
 
 
       sudokuBoard.appendChild(input);
@@ -1645,14 +3095,16 @@ function createSudoku() {
 }
 
 
-/* =========================
+/* =====================================================
    CHECK SUDOKU
-========================= */
+===================================================== */
 
 function checkSudoku() {
 
   const cells =
-    document.querySelectorAll(".sudoku-cell");
+    document.querySelectorAll(
+      ".sudoku-cell"
+    );
 
 
   let correct = true;
@@ -1682,7 +3134,10 @@ function checkSudoku() {
     }
 
 
-    if (value !== solution[row][col]) {
+    if (
+      value !==
+      solution[row][col]
+    ) {
 
       correct = false;
 
@@ -1692,7 +3147,9 @@ function checkSudoku() {
 
 
   const result =
-    document.getElementById("sudoku-result");
+    document.getElementById(
+      "sudoku-result"
+    );
 
 
   if (!complete) {
@@ -1710,7 +3167,9 @@ function checkSudoku() {
     result.textContent =
       "YOU DID ITTTT! 🥹💕 I'm proud of you.";
 
-  } else {
+  }
+
+  else {
 
     result.textContent =
       "Hmmmm... something is wrong. Try again, bonak. HAHAHA ♡";
@@ -1720,32 +3179,30 @@ function checkSudoku() {
 }
 
 
-/* =========================
+/* =====================================================
    RESET SUDOKU
-========================= */
+===================================================== */
 
 function resetSudoku() {
 
   createSudoku();
 
+
   document
-    .getElementById("sudoku-result")
+    .getElementById(
+      "sudoku-result"
+    )
     .textContent = "";
 
 }
 
 
-/* =========================
-   START SUDOKU
-========================= */
+/* =====================================================
+   INITIALIZE
+===================================================== */
 
 createSudoku();
 
-
-/*
-  The site intentionally starts on the
-  LETTER page after the surprise button.
-*/
 
 </script>
 
