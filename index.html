@@ -38,6 +38,7 @@ body {
     min-height: 100vh;
 }
 
+
 /* =========================================
    FALLING PETALS
 ========================================= */
@@ -68,6 +69,7 @@ body {
     }
 
 }
+
 
 /* =========================================
    OPENING SCREEN
@@ -101,19 +103,18 @@ body {
 }
 
 .opening-card {
-
     max-width: 700px;
     width: 100%;
-
     padding: 20px;
 }
 
-/* BIG LILY */
+
+/* =========================================
+   OPENING LILY
+========================================= */
 
 .lily-large {
-
     width: 115px;
-
     margin: 0 auto 5px;
 
     animation:
@@ -132,7 +133,10 @@ body {
 
 }
 
-/* SMALL INTRO */
+
+/* =========================================
+   OPENING TEXT
+========================================= */
 
 .small-intro {
 
@@ -147,13 +151,14 @@ body {
     margin-bottom: 12px;
 }
 
-/* MAIN GREETING */
-
 .opening-title {
 
-    font-family: "Cormorant Garamond", serif;
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
-    font-size: clamp(48px, 8vw, 85px);
+    font-size:
+        clamp(48px, 8vw, 85px);
 
     line-height: .88;
 
@@ -198,7 +203,10 @@ body {
     line-height: 1.6;
 }
 
-/* OPEN BUTTON */
+
+/* =========================================
+   OPEN BUTTON
+========================================= */
 
 .open-btn {
 
@@ -440,15 +448,11 @@ main {
 }
 
 .lily:nth-child(2) {
-
-    animation-delay:
-        .5s;
+    animation-delay: .5s;
 }
 
 .lily:nth-child(3) {
-
-    animation-delay:
-        1s;
+    animation-delay: 1s;
 }
 
 @keyframes flowerFloat {
@@ -539,13 +543,10 @@ main {
     font-size: 30px;
 }
 
-/*
-=================================================
- EDIT YOUR LETTER HERE
-=================================================
-Replace everything inside .letter-content with
-your actual birthday letter when you're ready.
-*/
+
+/* =========================================
+   YOUR LETTER
+========================================= */
 
 .letter-content {
 
@@ -555,22 +556,24 @@ your actual birthday letter when you're ready.
 
     font-size: 21px;
 
-    line-height: 1.8;
+    line-height: 1.75;
 
     color: #5a3945;
-
-    white-space: normal;
 }
 
-.letter-placeholder {
+.letter-heading {
 
-    color: #d18ba3;
+    color: var(--hotpink);
 
-    text-align: center;
+    font-family:
+        "Cormorant Garamond",
+        serif;
 
-    margin-top: 150px;
+    font-size: 34px;
 
-    font-style: italic;
+    font-weight: 700;
+
+    margin-bottom: 25px;
 }
 
 
@@ -705,6 +708,13 @@ your actual birthday letter when you're ready.
         min-height: 500px;
     }
 
+    .letter-content {
+
+        font-size: 19px;
+
+        line-height: 1.7;
+    }
+
     #sudoku input {
 
         width: 35px;
@@ -742,6 +752,7 @@ your actual birthday letter when you're ready.
     class="petals"
     id="petals">
 </div>
+
 
 
 <!-- =========================================
@@ -872,11 +883,11 @@ your actual birthday letter when you're ready.
 
 
         <div class="small-intro">
+
             A little birthday surprise from JJ ♡
+
         </div>
 
-
-        <!-- MAIN GREETING -->
 
         <div class="opening-title">
 
@@ -887,7 +898,9 @@ your actual birthday letter when you're ready.
 
 
         <div class="opening-hearts">
+
             ♡ ♡ ♡
+
         </div>
 
 
@@ -897,8 +910,6 @@ your actual birthday letter when you're ready.
 
         </div>
 
-
-        <!-- YOUR NEW MESSAGE -->
 
         <div class="opening-message">
 
@@ -973,7 +984,7 @@ your actual birthday letter when you're ready.
 
 
 <!-- =========================================
-     MAIN CONTENT
+     MAIN
 ========================================= -->
 
 <main>
@@ -991,10 +1002,10 @@ your actual birthday letter when you're ready.
     <div class="card">
 
 
-        <!-- LILIES -->
-
         <div class="lily-row">
 
+
+            <!-- LILY 1 -->
 
             <div class="lily">
 
@@ -1056,6 +1067,8 @@ your actual birthday letter when you're ready.
             </div>
 
 
+            <!-- LILY 2 -->
+
             <div class="lily">
 
                 <svg viewBox="0 0 200 200">
@@ -1115,6 +1128,8 @@ your actual birthday letter when you're ready.
 
             </div>
 
+
+            <!-- LILY 3 -->
 
             <div class="lily">
 
@@ -1180,7 +1195,9 @@ your actual birthday letter when you're ready.
 
 
         <div class="small-intro">
+
             for my favorite person ♡
+
         </div>
 
 
@@ -1193,7 +1210,9 @@ your actual birthday letter when you're ready.
 
 
         <div class="opening-hearts">
+
             ♡ ♡ ♡
+
         </div>
 
 
@@ -1205,19 +1224,6 @@ your actual birthday letter when you're ready.
 
             I made you a tiny little corner
             because you deserve something cute.
-
-        </div>
-
-
-        <div style="text-align:center;">
-
-            <button
-                class="open-btn"
-                onclick="playSong()">
-
-                🎵 PLAY YOUR SONG
-
-            </button>
 
         </div>
 
@@ -1241,62 +1247,89 @@ your actual birthday letter when you're ready.
 
 
         <h2 class="section-title">
+
             My Letter ♡
+
         </h2>
 
 
         <p class="subtitle">
+
             Something from me to you.
+
         </p>
 
 
         <div class="letter-paper">
 
 
-            <!-- =================================
-                 EDIT YOUR LETTER HERE
-            ================================== -->
-
             <div class="letter-content">
 
-                <div class="letter-placeholder">
 
-                    Your letter goes here, Baby. ♡
+                <div class="letter-heading">
 
-                    <br><br>
-
-                    I'm leaving this space blank
-                    until JJ finishes writing it.
-
-                    <br><br>
-
-                    <small>
-                        ← Replace this text with your letter.
-                    </small>
+                    HAPPY BIRTHDAY, MAHAL ♡
 
                 </div>
 
 
-                <!--
-
-                WHEN YOU'RE READY, DELETE THE
-                PLACEHOLDER ABOVE AND WRITE:
-
-                My Baby,
+                I’m writing this while I’m literally talking to you,
+                so I have to type quietly so you don’t hear me.
+                HAHAHAHAHA.
 
                 <br><br>
 
-                Your letter goes here...
+
+                I have so many things I want to tell you,
+                not just today, but honestly, almost every day.
 
                 <br><br>
 
-                I love you,
 
-                <br>
+                You’ve become someone I’m so comfortable with.
+                I can talk to you about random things, be stupid with you,
+                play Roblox, or just stay on call with you.
+                Somehow, you became one of the best parts of my everyday life.
 
-                JJ ♡
+                <br><br>
 
-                -->
+
+                You’re my light. I love your smile, your laugh,
+                your little reactions, and just seeing you happy.
+                And the more I get to know you, the more I realize
+                how beautiful you are.
+
+                <br><br>
+
+
+                I also love that you let me see the vulnerable parts of you.
+                I still think about that night when we cried together.
+                I know you were having a hard time, but being able to be
+                there with you meant a lot to me.
+
+                <br><br>
+
+
+                I guess I don't just want to know the happy and cute parts
+                of you. I want to know <strong>you</strong>—even on the days
+                when you're anxious, tired, or stressed.
+
+                <br><br>
+
+
+                I’m really glad I met you. Out of all the random people
+                I could have met online, somehow I met <strong>you</strong>.
+
+                <br><br>
+
+
+                Happy 24th birthday, Baby.
+                I hope you have the happiest birthday because you deserve it.
+
+                <br><br>
+
+
+                <strong>— JJ</strong>
 
 
             </div>
@@ -1324,7 +1357,9 @@ your actual birthday letter when you're ready.
 
 
         <h2 class="section-title">
+
             Sudoku ♡
+
         </h2>
 
 
@@ -1391,7 +1426,6 @@ your actual birthday letter when you're ready.
 const petals =
     document.getElementById("petals");
 
-
 const petalSymbols = [
     "🌸",
     "♡",
@@ -1441,32 +1475,24 @@ for (
    MUSIC
 ========================================= */
 
-const player =
-    document.getElementById("player");
-
-
-/*
-   We create the audio element with
-   JavaScript so the music exists on
-   every page but doesn't need its own tab.
-*/
-
 const audio =
     document.createElement("audio");
 
-audio.id = "player";
+audio.id =
+    "player";
 
-audio.loop = true;
+audio.loop =
+    true;
 
-audio.preload = "auto";
+audio.preload =
+    "auto";
 
-audio.volume = 0.7;
+audio.volume =
+    0.7;
 
 
 /*
-   IMPORTANT:
-   This is the exact filename of the
-   MP3 inside your GitHub repository.
+   Your exact MP3 filename
 */
 
 const source =
@@ -1513,8 +1539,9 @@ function playSong() {
 function openSurprise() {
 
     /*
-       Because she clicked this button,
-       the browser allows music playback.
+       Clicking this button counts as
+       user interaction, so the browser
+       can start the music.
     */
 
     playSong();
@@ -1682,9 +1709,11 @@ function buildSudoku() {
                 document.createElement("input");
 
 
-            input.type = "text";
+            input.type =
+                "text";
 
-            input.maxLength = 1;
+            input.maxLength =
+                1;
 
             input.inputMode =
                 "numeric";
@@ -1709,19 +1738,27 @@ function buildSudoku() {
             }
 
 
-            input.dataset.row = r;
+            input.dataset.row =
+                r;
 
-            input.dataset.col = c;
+            input.dataset.col =
+                c;
 
 
-            cell.appendChild(input);
+            cell.appendChild(
+                input
+            );
 
-            row.appendChild(cell);
+            row.appendChild(
+                cell
+            );
 
         }
 
 
-        table.appendChild(row);
+        table.appendChild(
+            row
+        );
 
     }
 
@@ -1730,7 +1767,8 @@ function buildSudoku() {
 
 function checkSudoku() {
 
-    let correct = true;
+    let correct =
+        true;
 
 
     const inputs =
@@ -1759,7 +1797,8 @@ function checkSudoku() {
                 solution[r][c]
             ) {
 
-                correct = false;
+                correct =
+                    false;
 
                 input.style.background =
                     "#ffd6e4";
@@ -1824,7 +1863,6 @@ function resetSudoku() {
 ========================================= */
 
 buildSudoku();
-
 
 </script>
 
