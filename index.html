@@ -3,88 +3,95 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Cassey ♡</title>
+
+<title>Happy Birthday Cassey ♡</title>
 
 <style>
-*{box-sizing:border-box}
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root{
+    --pink:#ff8fb3;
+    --hotpink:#f45d8d;
+    --lightpink:#fff0f5;
+    --pale:#fff8fb;
+    --darkpink:#c94e78;
+    --text:#5a3945;
+    --soft:#a56f81;
+    --white:#ffffff;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
     margin:0;
-    background:#fff8fa;
-    color:#49383e;
-    font-family:Georgia,serif;
+    background:var(--pale);
+    color:var(--text);
+    font-family:'Quicksand',sans-serif;
+    overflow-x:hidden;
 }
 
-.page{
-    min-height:100vh;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:35px 20px;
+/* =========================
+   FLOWERS / PETALS
+========================= */
+
+.petals{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:1;
 }
 
-.page.active{display:flex}
-
-.container{
-    width:100%;
-    max-width:700px;
-    text-align:center;
+.petal{
+    position:absolute;
+    top:-50px;
+    color:#ff9fbe;
+    opacity:.55;
+    animation:fall linear infinite;
 }
+
+@keyframes fall{
+    0%{
+        transform:translateY(-50px) rotate(0deg);
+    }
+    100%{
+        transform:translateY(110vh) rotate(360deg);
+    }
+}
+
+/* =========================
+   LILY
+========================= */
 
 .lily{
-    font-size:80px;
-    animation:float 3s ease-in-out infinite;
+    width:190px;
+    height:190px;
+    margin:0 auto;
+    animation:flowerFloat 4s ease-in-out infinite;
+    filter:drop-shadow(0 15px 20px rgba(220,83,126,.22));
 }
 
-@keyframes float{
-    50%{transform:translateY(-10px)}
+@keyframes flowerFloat{
+    50%{
+        transform:translateY(-10px) rotate(2deg);
+    }
 }
 
-.small{
-    font-family:Arial,sans-serif;
-    font-size:11px;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    color:#a5838d;
+.lily.small{
+    width:100px;
+    height:100px;
 }
 
-h1{
-    font-size:58px;
-    font-weight:400;
-    margin:15px 0;
-}
-
-h2{
-    font-size:35px;
-    font-weight:400;
-}
-
-p{
-    line-height:1.8;
-    color:#715d64;
-}
-
-button{
-    border:0;
-    border-radius:30px;
-    padding:13px 25px;
-    margin:8px;
-    background:#efa5bc;
-    color:white;
-    font-size:15px;
-    cursor:pointer;
-    box-shadow:0 8px 20px #d795aa55;
-}
-
-button:hover{
-    transform:translateY(-2px);
-}
-
-.secondary{
-    background:white;
-    color:#654d56;
-    border:1px solid #edced8;
-}
+/* =========================
+   NAV
+========================= */
 
 nav{
     display:none;
@@ -92,695 +99,1359 @@ nav{
     top:0;
     left:0;
     right:0;
-    z-index:10;
+    z-index:50;
+
     padding:12px 5px;
-    background:#fff8f9ee;
-    backdrop-filter:blur(10px);
+
+    background:rgba(255,248,251,.93);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid #ffd9e5;
     text-align:center;
 }
 
 nav button{
+    border:0;
     background:none;
-    color:#8d717b;
-    box-shadow:none;
-    padding:7px 8px;
-    margin:0 2px;
-    font-family:Arial,sans-serif;
+    color:#a15f76;
+
+    font-family:'Quicksand',sans-serif;
     font-size:11px;
+    font-weight:600;
+
+    padding:8px 10px;
+    cursor:pointer;
 }
+
+/* =========================
+   PAGES
+========================= */
+
+.page{
+    min-height:100vh;
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:80px 20px 40px;
+
+    position:relative;
+    z-index:2;
+}
+
+.page.active{
+    display:flex;
+}
+
+.container{
+    width:min(760px,100%);
+    text-align:center;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+.script{
+    font-family:'Cormorant Garamond',serif;
+}
+
+.eyebrow{
+    font-size:11px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#b27b8e;
+}
+
+h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(42px,11vw,78px);
+    line-height:.95;
+    font-weight:600;
+
+    color:var(--darkpink);
+
+    margin:18px 0 10px;
+}
+
+h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(32px,8vw,48px);
+    font-weight:500;
+
+    color:var(--darkpink);
+}
+
+h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:29px;
+    font-weight:500;
+}
+
+p{
+    color:#765763;
+    line-height:1.85;
+}
+
+/* =========================
+   HOME
+========================= */
+
+.home-subtitle{
+    font-size:17px;
+    color:#9b6377;
+    margin:10px 0;
+}
+
+.age{
+    display:inline-block;
+
+    margin:12px 0 20px;
+
+    padding:8px 17px;
+
+    border-radius:30px;
+
+    background:#ffe4ed;
+    color:#c25278;
+
+    font-size:13px;
+    font-weight:600;
+}
+
+.big-heart{
+    font-size:24px;
+    color:#f45d8d;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn{
+    border:0;
+    border-radius:40px;
+
+    padding:15px 27px;
+
+    margin:8px;
+
+    background:linear-gradient(
+        135deg,
+        #ffabc5,
+        #f16b98
+    );
+
+    color:white;
+
+    font-family:'Quicksand',sans-serif;
+    font-weight:600;
+
+    box-shadow:
+        0 10px 25px rgba(241,107,152,.25);
+
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:
+        0 14px 30px rgba(241,107,152,.32);
+}
+
+.secondary{
+    background:white;
+    color:#9c6277;
+
+    border:1px solid #f4cbd8;
+
+    box-shadow:none;
+}
+
+/* =========================
+   CARD
+========================= */
 
 .card{
     background:white;
-    border:1px solid #f0dce2;
-    border-radius:25px;
+
+    border:1px solid #f5d6e0;
+
+    border-radius:28px;
+
     padding:30px;
-    box-shadow:0 15px 45px #b8798b18;
+
+    box-shadow:
+        0 20px 55px rgba(194,93,125,.10);
 }
 
-.blank-letter{
-    min-height:350px;
+/* =========================
+   LETTER
+========================= */
+
+.letter-paper{
+    min-height:420px;
+
+    border-radius:22px;
+
+    border:2px dashed #f0bfd0;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.95),
+            rgba(255,248,251,.95)
+        );
+
     display:flex;
+
     align-items:center;
     justify-content:center;
-    border:2px dashed #e9c7d2;
-    border-radius:18px;
-    color:#a1848c;
-    padding:30px;
+
+    padding:35px;
 }
 
-.memories{
+.letter-placeholder{
+    color:#ae8190;
+}
+
+.letter-placeholder .lily{
+    margin-bottom:15px;
+}
+
+/* =========================
+   CUTE NOTES
+========================= */
+
+.notes{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:14px;
+
+    margin-top:25px;
 }
 
-.memory{
-    padding:25px 15px;
-    background:#fff7fa;
-    border-radius:18px;
-    border:1px solid #f3dce3;
+.note{
+    background:#fff0f5;
+
+    border:1px solid #f5d5e0;
+
+    border-radius:22px;
+
+    padding:24px 15px;
+
+    transition:.25s;
 }
 
-.memory span{
-    font-size:35px;
+.note:hover{
+    transform:translateY(-4px);
 }
 
-.crossword{
-    display:inline-grid;
-    grid-template-columns:repeat(7,42px);
-    gap:3px;
-    margin:20px auto;
+.note-icon{
+    font-size:34px;
+    margin-bottom:8px;
 }
 
-.crossword input{
-    width:42px;
-    height:42px;
-    text-align:center;
-    text-transform:uppercase;
-    font-size:19px;
-    border:1px solid #e5c8d2;
-    border-radius:5px;
+.note b{
+    color:#bd5275;
 }
+
+.note p{
+    margin:7px 0 0;
+    font-size:13px;
+}
+
+/* =========================
+   SONG
+========================= */
+
+.song-card{
+    background:
+        linear-gradient(
+            145deg,
+            #fff1f6,
+            #ffe3ed
+        );
+
+    border:1px solid #f5cbd9;
+
+    border-radius:30px;
+
+    padding:35px 25px;
+}
+
+.song-title{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:34px;
+
+    color:#c94e78;
+
+    margin:5px 0;
+}
+
+.song-artist{
+    color:#a86a7e;
+}
+
+audio{
+    width:100%;
+    margin-top:20px;
+}
+
+/* =========================
+   SUDOKU
+========================= */
 
 .sudoku{
     display:grid;
-    grid-template-columns:repeat(9,35px);
+
+    grid-template-columns:
+        repeat(9,36px);
+
     gap:2px;
+
     justify-content:center;
+
     margin:25px auto;
 }
 
 .sudoku input,
 .sudoku div{
-    width:35px;
-    height:35px;
-    text-align:center;
+
+    width:36px;
+    height:36px;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
-    font-size:17px;
-    border:1px solid #ead2d9;
+
+    border:1px solid #f0cbd7;
+
     background:white;
+
+    font-size:16px;
+
+    color:#6d4654;
+}
+
+.sudoku div{
+    font-weight:700;
+    background:#fff4f7;
 }
 
 .sudoku input{
-    border:0;
-    outline:1px solid #ead2d9;
+    outline:none;
     text-align:center;
+
+    font-family:'Quicksand',sans-serif;
 }
 
+.sudoku input:focus{
+    background:#ffe8f0;
+    border-color:#ef86a7;
+}
+
+/* =========================
+   SECRET
+========================= */
+
 .secret{
-    filter:blur(8px);
-    transition:.7s;
     cursor:pointer;
+
+    transition:.8s;
+
+    filter:blur(7px);
 }
 
 .secret.open{
     filter:none;
 }
 
-.petals{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    overflow:hidden;
-    z-index:0;
+.secret-hint{
+    color:#a97687;
+    font-size:13px;
 }
 
-.petal{
-    position:absolute;
-    top:-30px;
-    animation:fall 8s linear infinite;
-    opacity:.5;
+/* =========================
+   FOOTER
+========================= */
+
+.final-message{
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:25px;
+
+    line-height:1.6;
+
+    color:#9d526f;
 }
 
-@keyframes fall{
-    to{
-        transform:translateY(110vh) rotate(360deg);
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:520px){
+
+    .lily{
+        width:160px;
+        height:160px;
     }
-}
 
-@media(max-width:500px){
-    h1{font-size:45px}
-    h2{font-size:29px}
-
-    .memories{
+    .notes{
         grid-template-columns:1fr;
     }
 
-    .crossword{
-        grid-template-columns:repeat(7,35px);
-    }
-
-    .crossword input{
-        width:35px;
-        height:35px;
-    }
-
     .sudoku{
-        grid-template-columns:repeat(9,31px);
+        grid-template-columns:
+            repeat(9,31px);
     }
 
     .sudoku input,
     .sudoku div{
         width:31px;
         height:31px;
+        font-size:14px;
+    }
+
+    nav button{
+        font-size:10px;
+        padding:7px 5px;
     }
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="petals" id="petals"></div>
+
+<!-- ==================================
+     SVG PINK LILY
+================================== -->
+
+<svg width="0" height="0" style="position:absolute">
+
+<defs>
+
+<linearGradient
+    id="pinkPetal"
+    x1="0"
+    y1="0"
+    x2="1"
+    y2="1">
+
+    <stop offset="0%" stop-color="#fff7fa"/>
+    <stop offset="45%" stop-color="#ffb5cb"/>
+    <stop offset="100%" stop-color="#ed739c"/>
+
+</linearGradient>
+
+<radialGradient id="center">
+
+    <stop offset="0%" stop-color="#ffe48c"/>
+    <stop offset="100%" stop-color="#e8a94c"/>
+
+</radialGradient>
+
+<symbol id="lilyFlower" viewBox="0 0 200 200">
+
+<g
+    fill="url(#pinkPetal)"
+    stroke="#df7297"
+    stroke-width="1.5">
+
+    <path d="
+        M100 105
+        C55 88 42 43 73 17
+        C105 38 112 74 100 105Z"/>
+
+    <path d="
+        M100 105
+        C145 88 158 43 127 17
+        C95 38 88 74 100 105Z"/>
+
+    <path d="
+        M100 105
+        C69 70 30 62 19 91
+        C39 119 73 122 100 105Z"/>
+
+    <path d="
+        M100 105
+        C131 70 170 62 181 91
+        C161 119 127 122 100 105Z"/>
+
+    <path d="
+        M100 105
+        C82 62 98 30 100 13
+        C121 41 123 75 100 105Z"/>
+
+    <path d="
+        M100 105
+        C118 62 102 30 100 13
+        C79 41 77 75 100 105Z"/>
+
+    <path d="
+        M100 105
+        C87 126 89 159 100 184
+        C111 159 113 126 100 105Z"/>
+
+</g>
+
+<circle
+    cx="100"
+    cy="104"
+    r="9"
+    fill="url(#center)"
+/>
+
+<g
+    stroke="#a15c73"
+    stroke-width="2">
+
+    <path d="M95 100 L78 72"/>
+    <path d="M105 100 L122 72"/>
+    <path d="M91 103 L67 91"/>
+    <path d="M109 103 L133 91"/>
+
+</g>
+
+</symbol>
+
+</defs>
+
+</svg>
+
+
+<!-- ==================================
+     FALLING PETALS
+================================== -->
+
+<div
+    class="petals"
+    id="petals">
+</div>
+
+
+<!-- ==================================
+     NAVIGATION
+================================== -->
 
 <nav id="nav">
-<button onclick="showPage('letter')">💌 Letter</button>
-<button onclick="showPage('games')">🧩 Games</button>
-<button onclick="showPage('song')">🎵 Song</button>
-<button onclick="showPage('cassey')">🌷 Cassey</button>
-<button onclick="showPage('secret')">🔐 Secret</button>
+
+<button onclick="showPage('letter')">
+💌 Letter
+</button>
+
+<button onclick="showPage('sudoku')">
+🔢 Sudoku
+</button>
+
+<button onclick="showPage('song')">
+🎵 Song
+</button>
+
+<button onclick="showPage('notes')">
+🌷 Little Notes
+</button>
+
+<button onclick="showPage('secret')">
+💗 Surprise
+</button>
+
 </nav>
 
-<!-- HOME -->
 
-<section id="home" class="page active">
+<!-- ==================================
+     HOME
+================================== -->
+
+<section
+    id="home"
+    class="page active">
+
 <div class="container">
 
-<div class="lily">🌷</div>
+<div class="lily">
 
-<div class="small">a little something from JJ</div>
-
-<h1>For Cassey ♡</h1>
-
-<p>
-For the girl who somehow became part of my everyday life,
-even from miles away.
-</p>
-
-<button onclick="enter()">open this ♡</button>
+<svg viewBox="0 0 200 200">
+<use href="#lilyFlower"></use>
+</svg>
 
 </div>
+
+<div class="eyebrow">
+A birthday surprise from JJ
+</div>
+
+<h1>
+HAPPY BIRTHDAY<br>
+MAHAL!!!!!
+</h1>
+
+<div class="big-heart">
+♡ ♡ ♡
+</div>
+
+<div class="age">
+SEPTEMBER 8 · 24 YEARS OLD
+</div>
+
+<p class="home-subtitle">
+
+For my favorite shorty,
+my baby,
+my mahal. ♡
+
+</p>
+
+<button
+    class="btn"
+    onclick="openSurprise()">
+
+OPEN MY SURPRISE ♡
+
+</button>
+
+<p style="
+font-size:12px;
+color:#b08391;
+">
+
+🎵 turn your sound on
+
+</p>
+
+</div>
+
 </section>
 
 
-<!-- LETTER -->
+<!-- ==================================
+     LETTER
+================================== -->
 
-<section id="letter" class="page">
+<section
+    id="letter"
+    class="page">
+
 <div class="container">
 
-<div class="small">01 — a letter</div>
+<div class="eyebrow">
+01 — from JJ
+</div>
 
-<h2>Things I want to tell you</h2>
+<h2>
+A letter for you 💌
+</h2>
 
 <div class="card">
 
-<div class="blank-letter">
+<div class="letter-paper">
 
-Your letter will live here, Baby. ♡
+<div class="letter-placeholder">
 
-<br><br>
+<div class="lily">
 
-I'm leaving this space blank for JJ's words.
+<svg viewBox="0 0 200 200">
+<use href="#lilyFlower"></use>
+</svg>
+
+</div>
+
+<h3>
+Your letter goes here, Baby. ♡
+</h3>
+
+<p>
+I'm leaving this space blank<br>
+until JJ finishes writing it.
+</p>
 
 </div>
 
 </div>
 
 </div>
+
+</div>
+
 </section>
 
 
-<!-- GAMES -->
+<!-- ==================================
+     SUDOKU
+================================== -->
 
-<section id="games" class="page">
+<section
+    id="sudoku"
+    class="page">
+
 <div class="container">
 
-<div class="small">02 — our little games</div>
-
-<h2>Remember when?</h2>
-
-<p>
-We used to play together.
-So I wanted to bring a little piece of that back.
-</p>
-
-<button onclick="showPage('crossword')">
-♡ Crossword
-</button>
-
-<button class="secondary" onclick="showPage('sudoku')">
-♡ Sudoku
-</button>
-
+<div class="eyebrow">
+02 — our little game
 </div>
-</section>
 
-
-<!-- CROSSWORD -->
-
-<section id="crossword" class="page">
-<div class="container">
-
-<div class="small">our crossword</div>
-
-<h2>How well do you know us?</h2>
+<h2>
+Sudoku ♡
+</h2>
 
 <p>
-Fill the words below. They're all little pieces of us.
-</p>
-
-<div class="card">
-
-<p><b>1.</b> Her favorite color</p>
-<input id="cw1" placeholder="PINK">
-
-<p><b>2.</b> What JJ calls her</p>
-<input id="cw2" placeholder="MAHAL">
-
-<p><b>3.</b> What you call each other</p>
-<input id="cw3" placeholder="BABY">
-
-<p><b>4.</b> Her favorite matcha style</p>
-<input id="cw4" placeholder="HOJICHA">
-
-<p><b>5.</b> Our nightly game</p>
-<input id="cw5" placeholder="ROBLOX">
-
-<p><b>6.</b> Our word for bobo</p>
-<input id="cw6" placeholder="BONAK">
-
-<p><b>7.</b> Where we met</p>
-<input id="cw7" placeholder="CHATKOOL">
-
-<p><b>8.</b> Her cute dinosaur</p>
-<input id="cw8" placeholder="NAILONG">
-
+Because we played this together recently...
 <br>
-
-<button onclick="checkCrossword()">check ♡</button>
-
-<p id="cwmessage"></p>
-
-</div>
-
-<button class="secondary" onclick="showPage('games')">
-back
-</button>
-
-</div>
-</section>
-
-
-<!-- SUDOKU -->
-
-<section id="sudoku" class="page">
-<div class="container">
-
-<div class="small">the game we played</div>
-
-<h2>Sudoku ♡</h2>
-
-<p>
-A little reminder of our recent games.
-Take your time, Baby.
+I couldn't leave it out.
 </p>
 
 <div class="card">
 
-<div class="sudoku" id="sudokuGrid"></div>
+<div
+    class="sudoku"
+    id="sudokuGrid">
+</div>
 
-<button onclick="checkSudoku()">check ♡</button>
+<button
+    class="btn"
+    onclick="checkSudoku()">
+
+CHECK ♡
+
+</button>
+
+<button
+    class="btn secondary"
+    onclick="resetSudoku()">
+
+RESET
+
+</button>
 
 <p id="sudokuMessage"></p>
 
 </div>
 
 </div>
+
 </section>
 
 
-<!-- SONG -->
+<!-- ==================================
+     SONG
+================================== -->
 
-<section id="song" class="page">
+<section
+    id="song"
+    class="page">
+
 <div class="container">
 
-<div class="small">03 — a song for you</div>
+<div class="eyebrow">
+03 — this one's for you
+</div>
 
-<h2>The Way I Love You</h2>
+<div class="lily small">
+
+<svg viewBox="0 0 200 200">
+<use href="#lilyFlower"></use>
+</svg>
+
+</div>
+
+<h2>
+The Way I Love You
+</h2>
 
 <p>
 <b>Michal Leah</b>
 </p>
 
-<div class="card">
+<div class="song-card">
 
-<div style="font-size:60px">🎵</div>
+<div style="
+font-size:55px;
+">
+🎵
+</div>
 
-<p>
-A song I wanted you to have here.
-</p>
+<div class="song-title">
+The Way I Love You
+</div>
 
-<p style="font-size:13px">
-Add your legally obtained audio file below.
-</p>
+<div class="song-artist">
+Michal Leah
+</div>
 
-<input type="file" id="audioFile" accept="audio/*">
+<audio
+    id="player"
+    controls
+    preload="auto">
 
-<audio id="audioPlayer"
-controls
-style="width:100%;margin-top:20px;display:none">
+<source
+    src="Michal Leah - The Way I Love You.mp3"
+    type="audio/mpeg">
+
 </audio>
 
+<p style="
+font-size:12px;
+">
+
+A song from JJ to Cassey ♡
+
+</p>
+
+<button
+    class="btn"
+    onclick="playSong()">
+
+▶ PLAY
+
+</button>
+
 </div>
 
 </div>
+
 </section>
 
 
-<!-- CASSEY -->
+<!-- ==================================
+     LITTLE NOTES
+================================== -->
 
-<section id="cassey" class="page">
+<section
+    id="notes"
+    class="page">
+
 <div class="container">
 
-<div class="small">04 — that's so Cassey</div>
-
-<h2>Things that remind me of you ♡</h2>
-
-<div class="memories">
-
-<div class="memory">
-<span>🌸</span>
-<br><b>Pink</b>
-<p>Your favorite color.</p>
+<div class="eyebrow">
+04 — little things about you
 </div>
 
-<div class="memory">
-<span>🍵</span>
-<br><b>Hojicha</b>
-<p>Your matcha choice.</p>
+<h2>
+Little Cassey things ♡
+</h2>
+
+<p>
+A few things that make me think of you.
+</p>
+
+<div class="notes">
+
+<div class="note">
+
+<div class="note-icon">
+🌷
 </div>
 
-<div class="memory">
-<span>🧸</span>
-<br><b>Cute things</b>
-<p>Especially Pop Mart cutesies.</p>
-</div>
+<b>Pink lilies</b>
 
-<div class="memory">
-<span>💄</span>
-<br><b>Makeup</b>
-<p>Your girly little world.</p>
-</div>
-
-<div class="memory">
-<span>📷</span>
-<br><b>Digital cameras</b>
-<p>For tiny memories.</p>
-</div>
-
-<div class="memory">
-<span>🎤</span>
-<br><b>Sabrina Carpenter</b>
-<p>A little bit of Cassey.</p>
-</div>
-
-<div class="memory">
-<span>🦕</span>
-<br><b>Nailong</b>
-<p>Obviously.</p>
-</div>
-
-<div class="memory">
-<span>🎮</span>
-<br><b>Roblox nights</b>
-<p>Our almost-every-night thing.</p>
-</div>
-
-<div class="memory">
-<span>💬</span>
-<br><b>BONAK</b>
-<p>Our very own vocabulary.</p>
-</div>
-
-<div class="memory">
-<span>💗</span>
-<br><b>Baby / Mahal</b>
-<p>My favorite ways to call you.</p>
-</div>
+<p>
+Because pink is your favorite,
+and lilies are your favorite flower.
+</p>
 
 </div>
 
+
+<div class="note">
+
+<div class="note-icon">
+🍵
 </div>
+
+<b>Hojicha</b>
+
+<p>
+Of course I remembered your favorite.
+</p>
+
+</div>
+
+
+<div class="note">
+
+<div class="note-icon">
+🎮
+</div>
+
+<b>Roblox nights</b>
+
+<p>
+Our little almost-every-night routine.
+</p>
+
+</div>
+
+
+<div class="note">
+
+<div class="note-icon">
+🦕
+</div>
+
+<b>Nailong</b>
+
+<p>
+Your little dinosaur obsession.
+</p>
+
+</div>
+
+
+<div class="note">
+
+<div class="note-icon">
+🧸
+</div>
+
+<b>Pop Mart cutesies</b>
+
+<p>
+Because cute things somehow always
+remind me of you.
+</p>
+
+</div>
+
+
+<div class="note">
+
+<div class="note-icon">
+📷
+</div>
+
+<b>Digital cameras</b>
+
+<p>
+For collecting little moments.
+Just like this one.
+</p>
+
+</div>
+
+
+<div class="note">
+
+<div class="note-icon">
+🎤
+</div>
+
+<b>Sabrina Carpenter</b>
+
+<p>
+A little bit of your playlist,
+a little bit of your personality.
+</p>
+
+</div>
+
+
+<div class="note">
+
+<div class="note-icon">
+💬
+</div>
+
+<b>BONAK</b>
+
+<p>
+Because apparently "bobo"
+needed its own language.
+</p>
+
+</div>
+
+
+<div class="note">
+
+<div class="note-icon">
+💗
+</div>
+
+<b>Baby / Mahal</b>
+
+<p>
+My favorite names for my favorite girl.
+</p>
+
+</div>
+
+
+<div class="note">
+
+<div class="note-icon">
+🥹
+</div>
+
+<b>My shorty</b>
+
+<p>
+Cute.
+Girly.
+Tiny.
+And very much Cassey.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 
-<!-- SECRET -->
+<!-- ==================================
+     SECRET
+================================== -->
 
-<section id="secret" class="page">
+<section
+    id="secret"
+    class="page">
+
 <div class="container">
 
-<div class="small">05 — one last thing</div>
+<div class="eyebrow">
+05 — one last thing
+</div>
 
-<h2>Something for you</h2>
+<h2>
+One more birthday surprise 💗
+</h2>
 
-<p>Tap the message.</p>
+<p class="secret-hint">
+Tap the message...
+</p>
 
 <div
-class="card secret"
-id="secretMessage"
-onclick="this.classList.add('open')">
+    class="card secret"
+    id="secretMessage"
+    onclick="revealSecret()">
 
-<div style="font-size:55px">🌷</div>
+<div class="lily small">
 
-<h3>Baby...</h3>
+<svg viewBox="0 0 200 200">
+<use href="#lilyFlower"></use>
+</svg>
+
+</div>
+
+<h3>
+Happy 24th, Mahal ♡
+</h3>
 
 <p>
-Wherever you are, I hope you know that there is someone
-who thinks about you, smiles because of you,
-and is always rooting for you.
+
+I hope this little website
+made you smile.
+
 </p>
 
 <p>
-Thank you for becoming part of my everyday life.
+
+I know we're miles apart,
+but somehow you still became
+part of my everyday life.
+
 </p>
 
-<b>— JJ ♡</b>
+<p>
+
+Thank you for being you.
+
+</p>
+
+<p class="final-message">
+
+Happy birthday, Baby.
+
+♡ — JJ
+
+</p>
 
 </div>
 
 </div>
+
 </section>
 
 
 <script>
 
-/* PAGE NAVIGATION */
+/* ==================================
+   NAVIGATION
+================================== */
 
 function showPage(id){
 
-document.querySelectorAll(".page")
-.forEach(page => page.classList.remove("active"));
+    document
+        .querySelectorAll(".page")
+        .forEach(page => {
 
-document.getElementById(id)
-.classList.add("active");
+            page.classList.remove("active");
 
-window.scrollTo(0,0);
+        });
 
-}
+    document
+        .getElementById(id)
+        .classList.add("active");
 
-function enter(){
-
-document.getElementById("nav").style.display="block";
-
-showPage("letter");
+    window.scrollTo(0,0);
 
 }
 
 
-/* FALLING PETALS */
+/* ==================================
+   OPEN SURPRISE
+================================== */
 
-for(let i=0;i<20;i++){
+function openSurprise(){
 
-let petal=document.createElement("div");
+    document
+        .getElementById("nav")
+        .style.display="block";
 
-petal.className="petal";
+    showPage("letter");
 
-petal.innerHTML="🌸";
-
-petal.style.left=Math.random()*100+"%";
-
-petal.style.animationDelay=(-Math.random()*8)+"s";
-
-petal.style.fontSize=(12+Math.random()*15)+"px";
-
-document.getElementById("petals")
-.appendChild(petal);
+    playSong();
 
 }
 
 
-/* CROSSWORD */
+/* ==================================
+   MUSIC
+================================== */
 
-function checkCrossword(){
+function playSong(){
 
-let answers={
-cw1:"PINK",
-cw2:"MAHAL",
-cw3:"BABY",
-cw4:"HOJICHA",
-cw5:"ROBLOX",
-cw6:"BONAK",
-cw7:"CHATKOOL",
-cw8:"NAILONG"
-};
+    const player =
+        document.getElementById("player");
 
-let correct=true;
+    player.play().catch(function(){
 
-for(let id in answers){
+        /*
+        Mobile browsers may still block
+        autoplay. The player remains available.
+        */
 
-let value=document.getElementById(id)
-.value
-.trim()
-.toUpperCase();
-
-if(value!==answers[id]){
-correct=false;
-}
-
-}
-
-let message=document.getElementById("cwmessage");
-
-if(correct){
-
-message.innerHTML=
-"🥹 You got them all. You really do know your JJ. ♡";
-
-}else{
-
-message.innerHTML=
-"Almost, Baby. Take another look. ♡";
-
-}
+    });
 
 }
 
 
-/* SUDOKU */
+/* ==================================
+   FALLING PINK PETALS
+================================== */
 
-const puzzle=[
+for(let i=0;i<25;i++){
+
+    const petal =
+        document.createElement("div");
+
+    petal.className="petal";
+
+    petal.innerHTML =
+        ["🌸","🌷","♡"][Math.floor(
+            Math.random()*3
+        )];
+
+    petal.style.left =
+        Math.random()*100+"%";
+
+    petal.style.fontSize =
+        (10+Math.random()*15)+"px";
+
+    petal.style.animationDuration =
+        (6+Math.random()*8)+"s";
+
+    petal.style.animationDelay =
+        (-Math.random()*12)+"s";
+
+    document
+        .getElementById("petals")
+        .appendChild(petal);
+
+}
+
+
+/* ==================================
+   SUDOKU
+================================== */
+
+const puzzle = [
+
 [5,3,0,0,7,0,0,0,0],
+
 [6,0,0,1,9,5,0,0,0],
+
 [0,9,8,0,0,0,0,6,0],
+
 [8,0,0,0,6,0,0,0,3],
+
 [4,0,0,8,0,3,0,0,1],
+
 [7,0,0,0,2,0,0,0,6],
+
 [0,6,0,0,0,0,2,8,0],
+
 [0,0,0,4,1,9,0,0,5],
+
 [0,0,0,0,8,0,0,7,9]
+
 ];
 
-const solution=[
+
+const solution = [
+
 [5,3,4,6,7,8,9,1,2],
+
 [6,7,2,1,9,5,3,4,8],
+
 [1,9,8,3,4,2,5,6,7],
+
 [8,5,9,7,6,1,4,2,3],
+
 [4,2,6,8,5,3,7,9,1],
+
 [7,1,3,9,2,4,8,5,6],
+
 [9,6,1,5,3,7,2,8,4],
+
 [2,8,7,4,1,9,6,3,5],
+
 [3,4,5,2,8,6,1,7,9]
+
 ];
 
-let grid=document.getElementById("sudokuGrid");
 
-for(let r=0;r<9;r++){
+function buildSudoku(){
 
-for(let c=0;c<9;c++){
+    const grid =
+        document.getElementById(
+            "sudokuGrid"
+        );
 
-if(puzzle[r][c]!==0){
+    grid.innerHTML="";
 
-let cell=document.createElement("div");
+    for(let r=0;r<9;r++){
 
-cell.innerText=puzzle[r][c];
+        for(let c=0;c<9;c++){
 
-grid.appendChild(cell);
+            if(puzzle[r][c]!==0){
 
-}else{
+                const cell =
+                    document.createElement("div");
 
-let input=document.createElement("input");
+                cell.innerText =
+                    puzzle[r][c];
 
-input.maxLength=1;
-input.inputMode="numeric";
+                grid.appendChild(cell);
 
-input.dataset.row=r;
-input.dataset.col=c;
+            }else{
 
-grid.appendChild(input);
+                const input =
+                    document.createElement("input");
 
-}
+                input.maxLength=1;
 
-}
+                input.inputMode="numeric";
+
+                input.dataset.row=r;
+
+                input.dataset.col=c;
+
+                grid.appendChild(input);
+
+            }
+
+        }
+
+    }
 
 }
 
 
 function checkSudoku(){
 
-let correct=true;
+    let correct=true;
 
-document.querySelectorAll("#sudokuGrid input")
-.forEach(input=>{
+    document
+        .querySelectorAll(
+            "#sudokuGrid input"
+        )
+        .forEach(input=>{
 
-let r=input.dataset.row;
-let c=input.dataset.col;
+            const r =
+                input.dataset.row;
 
-if(Number(input.value)!==solution[r][c]){
+            const c =
+                input.dataset.col;
 
-correct=false;
+            if(
+                Number(input.value)
+                !== solution[r][c]
+            ){
+
+                correct=false;
+
+            }
+
+        });
+
+
+    const message =
+        document.getElementById(
+            "sudokuMessage"
+        );
+
+
+    if(correct){
+
+        message.innerHTML =
+        "🥹 YOU DID IT!!!!! " +
+        "Just like our little Sudoku games. ♡";
+
+    }else{
+
+        message.innerHTML =
+        "Almost, Baby! ♡ Keep going.";
+
+    }
 
 }
 
-});
 
-let message=
-document.getElementById("sudokuMessage");
+function resetSudoku(){
 
-if(correct){
+    document.getElementById(
+        "sudokuMessage"
+    ).innerHTML="";
 
-message.innerHTML=
-"🥹 You solved it! Just like our little Sudoku sessions. ♡";
-
-}else{
-
-message.innerHTML=
-"Not quite yet, Baby. Keep going. ♡";
-
-}
+    buildSudoku();
 
 }
 
 
-/* AUDIO */
+buildSudoku();
 
-document
-.getElementById("audioFile")
-.addEventListener("change",function(){
 
-let file=this.files[0];
+/* ==================================
+   SECRET MESSAGE
+================================== */
 
-if(!file)return;
+function revealSecret(){
 
-let player=
-document.getElementById("audioPlayer");
+    document
+        .getElementById("secretMessage")
+        .classList.add("open");
 
-player.src=
-URL.createObjectURL(file);
-
-player.style.display="block";
-
-});
+}
 
 </script>
 
